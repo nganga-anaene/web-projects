@@ -2,3 +2,4 @@
 
 This is a mock project which provides a rest service to a client of an online bookstore.
 
+![alt text]=(https://github.com/nganga-anaene/web-projects/edit/master/bookstore/bookstore simple model.png)
