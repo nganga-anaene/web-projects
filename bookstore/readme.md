@@ -5,4 +5,4 @@
 <h3>Model</h3>
 
 <p>The project will loosely follow the ERD below</p>
-<a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/bookstore%20simple%20model.png"></a>
+<a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/model.png"></a>
