@@ -8,4 +8,10 @@ The system will provide the following features for clients:
 
 <ol>
   <li>Protection of data</li>
+  <li>Purchase and cancel tickets:
+    <ol>
+      <li>Ability to purchase tickets without creating an account</li>
+      <li></li>
+    </ol>
+  </li>
 </ol>
