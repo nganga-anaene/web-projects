@@ -4,7 +4,7 @@ Mock project about a new airline. The airline will provide flights to a few majo
 
 <h2>How it works</h2>
 
-<bold>The system will provide the following features for clients:</bold>
+<b>The system will provide the following features for clients:</b>
 
 <ol>
   <li>Protection of data</li>
@@ -25,7 +25,7 @@ Mock project about a new airline. The airline will provide flights to a few majo
   </li>
 </ol>
 
-<p><bold>The system will provide the following features for administrators:</bold></p>
+<b>The system will provide the following features for administrators:</b>
 
 <ol>
   <li>Reset account details for registered users</li>
