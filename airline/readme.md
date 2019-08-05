@@ -16,5 +16,11 @@ The system will provide the following features for clients:
       <li>Flight tickets can be purchased upto six months in advance</li>
     </ol>
   </li>
-  <li>Account Management for registered user</li>
+  <li>Account Management for registered user:
+    <ol>
+      <li>Saved payment methods, passport details, preferred seats</li>
+      <li>Deletion of account, client has upto a week to undo</li>
+      <li>Ability to create an account using past flights to get better offers</li>
+    </ol>
+  </li>
 </ol>
