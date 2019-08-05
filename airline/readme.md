@@ -40,4 +40,4 @@ Mock project about a new airline. The airline will provide flights to a few majo
 
 <h2>Model</h2>
 
-<a><img src="https://github.com/nganga-anaene/web-projects/tree-save/master/airline/airline.png"></a>
+<a><img src="https://github.com/nganga-anaene/web-projects/blob/master/airline/airline.png"></a>
