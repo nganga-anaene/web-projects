@@ -25,7 +25,7 @@ Mock project about a new airline. The airline will provide flights to a few majo
   </li>
 </ol>
 
-<bold>The system will provide the following features for administrators:</bold>
+<p><bold>The system will provide the following features for administrators:</bold></p>
 
 <ol>
   <li>Reset account details for registered users</li>
