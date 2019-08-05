@@ -24,3 +24,15 @@ The system will provide the following features for clients:
     </ol>
   </li>
 </ol>
+
+The system will provide the following features for administrators:
+
+<ol>
+  <li>Reset account details for registered users</li>
+  <li>Data management for the airline:
+    <ol>
+      <li>Add/Cancel flights or listed airports</li>
+      <li>Check user transactions on request</li>
+    </ol>
+  </li>
+</ol>
