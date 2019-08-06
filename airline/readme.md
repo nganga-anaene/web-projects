@@ -36,3 +36,8 @@ Mock project about a new airline. The airline will provide flights to a few majo
     </ol>
   </li>
 </ol>
+
+
+<h2>Model</h2>
+
+<a><img src="https://github.com/nganga-anaene/web-projects/blob/master/airline/airline.png"></a>
