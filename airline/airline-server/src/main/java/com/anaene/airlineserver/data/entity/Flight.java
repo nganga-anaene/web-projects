@@ -1,7 +1,7 @@
 package com.anaene.airlineserver.data.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,10 +25,8 @@ public class Flight {
     @GeneratedValue
     private long id;
     @ManyToOne
-    @JsonBackReference
     private Airport departingAirport;
     @ManyToOne
-    @JsonBackReference
     private Airport arrivalAirport;
     @NotNull
     private LocalDateTime departureTime;
@@ -38,7 +36,7 @@ public class Flight {
     @Transient
     private final int maxBookings = 416;
     @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonIgnore
     private Set<Booking> bookings = new HashSet<>();
 
     public Flight(Airport departingAirport, Airport arrivalAirport, LocalDateTime departureTime, LocalDateTime arrivalTime) {
@@ -46,5 +44,10 @@ public class Flight {
         this.arrivalAirport = arrivalAirport;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
+    }
+
+    @JsonInclude
+    public int currentBookings() {
+        return bookings.size();
     }
 }

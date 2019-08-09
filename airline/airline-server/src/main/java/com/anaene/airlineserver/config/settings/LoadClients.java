@@ -23,14 +23,13 @@ public class LoadClients {
 
     public void addClients() {
         List<Passenger> passengers = passengerService.getAllPassengers();
-        for (int i = 0; i < 20; i++) {
-            Passenger passenger = passengers.get(i);
+        passengers.forEach(passenger -> {
             String username = setUsername(passenger.getPassport().getPerson().getName(), clientRepository);
             Name name = passenger.getPassport().getPerson().getName();
             String password = "password";
             Client client = new Client(name, username, password, passenger);
             clientRepository.save(client);
-        }
+        });
     }
 
     private String setUsername(Name name, ClientRepository clientRepository) {

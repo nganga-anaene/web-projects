@@ -1,5 +1,6 @@
 package com.anaene.airlineserver.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -23,11 +24,11 @@ public class Airport {
     private String name;
     @OneToOne
     private Address address;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "departingAirport")
-    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "departingAirport", fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Flight> departingFlights = new HashSet<>();
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "arrivalAirport")
-    @JsonManagedReference
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "arrivalAirport", fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Flight> arrivalFlights = new HashSet<>();
 
     public Airport(String name, Address address) {

@@ -1,7 +1,7 @@
 package com.anaene.airlineserver.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,10 +26,11 @@ public class Passenger {
     private Passport passport;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonIgnore
     private Set<Booking> bookings = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private Set<PaymentCard> paymentCards = new HashSet<>();
 
     public Passenger(Passport passport) {

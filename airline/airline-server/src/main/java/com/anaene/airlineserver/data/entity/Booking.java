@@ -1,6 +1,5 @@
 package com.anaene.airlineserver.data.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -22,11 +21,9 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @ManyToOne(optional = false)
-    @JsonBackReference
     private Passenger passenger;
 
     @ManyToOne
-    @JsonBackReference
     private Flight flight;
     private LocalDateTime purchaseDate;
     private BigDecimal purchasePrice;
