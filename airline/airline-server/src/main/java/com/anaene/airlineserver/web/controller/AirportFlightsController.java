@@ -34,7 +34,7 @@ public class AirportFlightsController {
     @GetMapping(value = "/arrivals/{flightId}")
     public ResponseEntity<Resource<Flight>> getArrivalFlight(@PathVariable long airportId, @PathVariable long flightId) {
         try {
-            Resource<Flight> resource = flightService.getArrivalFlight(airportId, flightId);
+            Resource<Flight> resource = flightService.getArrivalFlightResource(airportId, flightId);
             return ResponseEntity.ok(resource);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -54,10 +54,10 @@ public class AirportFlightsController {
         }
     }
 
-    @GetMapping(value = "/arrivals/{flightId}")
-    public ResponseEntity<Resource<Flight>> getDepartureFlight(@PathVariable long airportId, @PathVariable long flightId) {
+    @GetMapping(value = "/departures/{flightId}")
+    public ResponseEntity<Resource<Flight>> findDepartureFlight(@PathVariable long airportId, @PathVariable long flightId) {
         try {
-            Resource<Flight> resource = flightService.getDepartureFlight(airportId, flightId);
+            Resource<Flight> resource = flightService.getDepartureFlightResource(airportId, flightId);
             return ResponseEntity.ok(resource);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

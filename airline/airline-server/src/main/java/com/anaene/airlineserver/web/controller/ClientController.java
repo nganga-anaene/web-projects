@@ -23,7 +23,7 @@ public class ClientController {
 
     @PostMapping("")
     public ResponseEntity<Resource<Passenger>> addClient(@RequestBody Client client) {
-        try{
+        try {
             return ResponseEntity.ok(clientService.addClient(client));
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

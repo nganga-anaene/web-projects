@@ -4,6 +4,7 @@ import com.anaene.airlineserver.data.entity.Booking;
 import com.anaene.airlineserver.data.entity.Flight;
 import com.anaene.airlineserver.data.entity.PaymentCard;
 import com.anaene.airlineserver.data.repository.BookingRepository;
+import com.anaene.airlineserver.data.repository.PassengerRepository;
 import com.anaene.airlineserver.web.service.FlightService;
 import com.anaene.airlineserver.web.service.PassengerService;
 import org.springframework.stereotype.Component;
@@ -18,12 +19,12 @@ public class LoadBookings {
 
     private final PassengerService passengerService;
     private final FlightService flightService;
-    private final BookingRepository bookingRepository;
+    private final PassengerRepository passengerRepository;
 
-    public LoadBookings(PassengerService passengerService, FlightService flightService, BookingRepository bookingRepository) {
+    public LoadBookings(PassengerService passengerService, FlightService flightService, PassengerRepository passengerRepository) {
         this.passengerService = passengerService;
         this.flightService = flightService;
-        this.bookingRepository = bookingRepository;
+        this.passengerRepository = passengerRepository;
     }
 
     public void addBookings() {
@@ -36,7 +37,8 @@ public class LoadBookings {
                 LocalDateTime purchaseDate = setPurchaseDate(flight.getDepartureTime());
                 bookings.add(new Booking(passenger, flight, purchaseDate, price, paymentCard));
             }
-            bookingRepository.saveAll(bookings);
+            passenger.addBookings(bookings);
+            passengerRepository.save(passenger);
         });
     }
 

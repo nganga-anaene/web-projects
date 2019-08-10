@@ -55,13 +55,14 @@ public class PassengerService {
 
     @Transactional
     public Resource<Passenger> getPassengerResource(long passengerId) {
-        Passenger passenger = passengerRepository.findById(passengerId).orElseThrow();
+        Passenger passenger = passengerRepository.findPassengerById(passengerId).orElseThrow();
         return passengerResourceAssembler.toResource(passenger);
     }
 
     @Transactional
     public Resources<Resource<Booking>> getPassengerBookings(long passengerId) {
-        Passenger passenger = passengerRepository.findById(passengerId).orElseThrow();
+        Passenger passenger = passengerRepository.findPassengerById(passengerId).orElseThrow();
+        System.out.println(passenger.getBookings());
         Resources<Resource<Booking>> resources = new Resources<>(passenger.getBookings().stream().map(bookingService::getBookingResource).collect(Collectors.toList()));
         resources.add(linkTo(methodOn(PassengerController.class).getPassengerBookings(passengerId)).withSelfRel());
         resources.add(linkTo(methodOn(PassengerController.class).getPassengerDetails(passengerId)).withRel("passenger"));

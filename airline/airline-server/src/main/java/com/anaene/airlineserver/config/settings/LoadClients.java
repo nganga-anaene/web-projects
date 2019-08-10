@@ -15,21 +15,25 @@ public class LoadClients {
 
     private final PassengerService passengerService;
     private final ClientRepository clientRepository;
+    private final AppUtils appUtils;
 
-    public LoadClients(PassengerService passengerService, ClientRepository clientRepository) {
+    public LoadClients(PassengerService passengerService, ClientRepository clientRepository, AppUtils appUtils) {
         this.passengerService = passengerService;
         this.clientRepository = clientRepository;
+        this.appUtils = appUtils;
     }
 
     public void addClients() {
         List<Passenger> passengers = passengerService.getAllPassengers();
         passengers.forEach(passenger -> {
-            String username = setUsername(passenger.getPassport().getPerson().getName(), clientRepository);
+            String username = setUsername(passenger.getPassport().getPerson().getName(), clientRepository).toLowerCase().trim();
             Name name = passenger.getPassport().getPerson().getName();
-            String password = "password";
+            String password = appUtils.passwordEncoder().encode("password");
             Client client = new Client(name, username, password, passenger);
             clientRepository.save(client);
         });
+        Client client = clientRepository.findAll().stream().findFirst().get();
+        System.out.println(client.getUsername() + " " + client.getPassword());
     }
 
     private String setUsername(Name name, ClientRepository clientRepository) {

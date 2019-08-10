@@ -3,6 +3,8 @@ package com.anaene.airlineserver.config.settings;
 import com.anaene.airlineserver.data.entity.util.Gender;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -46,5 +48,9 @@ public class AppUtils {
         localDate = localDate.plusMonths(r.nextInt(12) + 1);
         localDate = localDate.plusDays(r.nextInt(30) + 1);
         return localDate;
+    }
+
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

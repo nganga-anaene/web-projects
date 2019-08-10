@@ -23,7 +23,7 @@ public class Booking {
     @ManyToOne(optional = false)
     private Passenger passenger;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Flight flight;
     private LocalDateTime purchaseDate;
     private BigDecimal purchasePrice;

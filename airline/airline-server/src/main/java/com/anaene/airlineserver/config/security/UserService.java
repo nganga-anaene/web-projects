@@ -26,7 +26,6 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Client client = clientRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
         List<GrantedAuthority> authorities = AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER");
-        User user = new User(client.getUsername(), client.getPassword(), authorities);
-        return null;
+        return new User(client.getUsername(), client.getPassword(), authorities);
     }
 }

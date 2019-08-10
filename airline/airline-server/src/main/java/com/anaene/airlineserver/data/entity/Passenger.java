@@ -7,7 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,7 +29,7 @@ public class Passenger {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private Set<Booking> bookings = new HashSet<>();
+    private List<Booking> bookings = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
@@ -44,6 +46,10 @@ public class Passenger {
 
     public void addPaymentCard(PaymentCard paymentCard) {
         this.paymentCards.add(paymentCard);
+    }
+
+    public void addBookings(List<Booking> bookings) {
+        bookings.forEach(this::addBooking);
     }
 
     public void addBooking(Booking booking) {

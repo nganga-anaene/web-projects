@@ -24,4 +24,9 @@ public class ClientService {
         Passenger passenger = clientRepository.save(client).getPassenger();
         return passengerService.getPassengerResource(passenger.getId());
     }
+
+    @Transactional
+    public long getPassengerId(String username) {
+        return clientRepository.findByUsername(username).orElseThrow().getPassenger().getId();
+    }
 }

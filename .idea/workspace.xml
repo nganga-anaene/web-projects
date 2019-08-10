@@ -2,23 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab6b4846-c839-4212-b8ae-2a88ed152be4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Address.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Airport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Booking.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Flight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/FlightPath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Passenger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Passport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/PaymentCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/util/Gender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/util/Name.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/util/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/security/ApplicationSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/security/ApplicationSecurity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/security/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/security/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/settings/AppUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/settings/AppUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/settings/LoadBookings.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/settings/LoadBookings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/settings/LoadClients.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/settings/LoadClients.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Passenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Passenger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/AirportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/AirportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/AirportFlightsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/AirportFlightsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/service/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/service/FlightService.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/service/FlightService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/service/PassengerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/service/PassengerService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,21 +31,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="950" />
@@ -56,6 +48,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -63,105 +56,19 @@
               <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="web-projects" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-projects" type="462c0819:PsiDirectoryNode" />
-              <item name="airline" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-projects" type="462c0819:PsiDirectoryNode" />
-              <item name="airline" type="462c0819:PsiDirectoryNode" />
-              <item name="airline-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-projects" type="462c0819:PsiDirectoryNode" />
-              <item name="airline" type="462c0819:PsiDirectoryNode" />
-              <item name="airline-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-projects" type="462c0819:PsiDirectoryNode" />
-              <item name="airline" type="462c0819:PsiDirectoryNode" />
-              <item name="airline-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-projects" type="462c0819:PsiDirectoryNode" />
-              <item name="airline" type="462c0819:PsiDirectoryNode" />
-              <item name="airline-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-projects" type="462c0819:PsiDirectoryNode" />
-              <item name="airline" type="462c0819:PsiDirectoryNode" />
-              <item name="airline-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-projects" type="462c0819:PsiDirectoryNode" />
-              <item name="airline" type="462c0819:PsiDirectoryNode" />
-              <item name="airline-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="anaene" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-projects" type="462c0819:PsiDirectoryNode" />
-              <item name="airline" type="462c0819:PsiDirectoryNode" />
-              <item name="airline-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="anaene" type="462c0819:PsiDirectoryNode" />
-              <item name="airlineserver" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-projects" type="462c0819:PsiDirectoryNode" />
-              <item name="airline" type="462c0819:PsiDirectoryNode" />
-              <item name="airline-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web-projects" type="462c0819:PsiDirectoryNode" />
-              <item name="airline" type="462c0819:PsiDirectoryNode" />
-              <item name="airline-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="popular-baby-names-master" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
@@ -237,6 +144,7 @@
       <workItem from="1565001005461" duration="145000" />
       <workItem from="1565042198253" duration="731000" />
       <workItem from="1565107986818" duration="717000" />
+      <workItem from="1565434915414" duration="756000" />
     </task>
     <task id="LOCAL-00001" summary="intergrated into intellij">
       <created>1562351564244</created>
@@ -263,74 +171,72 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2931000" />
+    <option name="totallyTimeSpent" value="3687000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26308724" />
-      <window_info anchor="right" id="Database" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26305354" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
-    </layout>
-    <layout-to-restore>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26308724" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26308724" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="intergrated into intellij" />

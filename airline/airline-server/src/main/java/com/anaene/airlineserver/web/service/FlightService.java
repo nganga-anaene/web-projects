@@ -53,7 +53,7 @@ public class FlightService {
     }
 
     @Transactional
-    public Resource<Flight> getArrivalFlight(long airportId, long flightId) {
+    public Resource<Flight> getArrivalFlightResource(long airportId, long flightId) {
         Flight flight = flightRepository.findById(flightId).orElseThrow();
         Resource<Flight> resource = flightResourceAssembler.toResource(flight);
         resource.add(linkTo(methodOn(AirportFlightsController.class).getArrivalFlight(airportId, flightId)).withSelfRel());
@@ -62,10 +62,10 @@ public class FlightService {
     }
 
     @Transactional
-    public Resource<Flight> getDepartureFlight(long airportId, long flightId) {
+    public Resource<Flight> getDepartureFlightResource(long airportId, long flightId) {
         Flight flight = flightRepository.findById(flightId).orElseThrow();
         Resource<Flight> resource = flightResourceAssembler.toResource(flight);
-        resource.add(linkTo(methodOn(AirportFlightsController.class).getDepartureFlight(airportId, flightId)).withSelfRel());
+        resource.add(linkTo(methodOn(AirportFlightsController.class).findDepartureFlight(airportId, flightId)).withSelfRel());
         resource.add(linkTo(methodOn(AirportController.class).getAirportById(flight.getArrivalAirport().getId())).withRel("departure-airport"));
         return resource;
     }
