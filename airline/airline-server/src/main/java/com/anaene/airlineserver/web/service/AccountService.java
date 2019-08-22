@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
 @Service
-public class ClientService {
+public class AccountService {
 
     private final ClientRepository clientRepository;
     private final PassengerService passengerService;
 
-    public ClientService(ClientRepository clientRepository, PassengerService passengerService) {
+    public AccountService(ClientRepository clientRepository, PassengerService passengerService) {
         this.clientRepository = clientRepository;
         this.passengerService = passengerService;
     }

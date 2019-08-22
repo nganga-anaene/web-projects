@@ -25,14 +25,10 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.httpBasic().and().authorizeRequests().antMatchers("/passengers").permitAll();
-
-
-        http.authorizeRequests().antMatchers("/account**").hasRole("USER");
-        http.authorizeRequests()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/flights**").permitAll()
-                .antMatchers("/airports**").permitAll();
+        http.httpBasic().and().authorizeRequests().antMatchers("/login").permitAll();
+        http.logout().logoutUrl("/logout").permitAll();
+        http.authorizeRequests().antMatchers("/account/**").hasRole("USER");
+        http.cors();
         http.csrf().disable();
     }
 

@@ -15,6 +15,7 @@ import org.springframework.hateoas.Resource;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -73,5 +74,11 @@ public class FlightService {
     @Transactional
     public List<Flight> getEmptyFlights() {
         return flightRepository.findAll().stream().filter(flight -> flight.getBookings().size() < flight.getMaxBookings()).collect(Collectors.toList());
+    }
+
+    @Transactional
+    public List<Flight> getEmptyFlights(Airport departureAirport, Airport arrivalAirport, LocalDateTime departureDate) {
+        return flightRepository.findByDepartingAirportAndArrivalAirportAndDepartureTimeAfter(departureAirport, arrivalAirport, departureDate)
+                .stream().filter(f -> f.getMaxBookings() > f.getBookings().size()).collect(Collectors.toList());
     }
 }

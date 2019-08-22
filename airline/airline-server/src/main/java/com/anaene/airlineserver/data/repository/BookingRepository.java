@@ -14,5 +14,5 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     Optional<Booking> findFullBookingById(Long id);
 
     @EntityGraph(value = "booking.full")
-    Optional<Booking> findByPassengerAndFlight(Passenger passenger, Flight flight);
+    Optional<Booking> findByPassengerAndFlightsIn(Passenger passenger, Flight flight);
 }

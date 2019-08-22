@@ -35,7 +35,7 @@ public class Flight {
     private BigDecimal initialPrice = BigDecimal.valueOf(400);
     @Transient
     private final int maxBookings = 416;
-    @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "flights", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Booking> bookings = new HashSet<>();
 

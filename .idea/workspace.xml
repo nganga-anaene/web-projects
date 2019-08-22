@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab6b4846-c839-4212-b8ae-2a88ed152be4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/security/ApplicationSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/security/ApplicationSecurity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/security/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/security/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/settings/AppUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/settings/AppUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/settings/LoadBookings.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/settings/LoadBookings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/settings/LoadClients.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/config/settings/LoadClients.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Passenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/data/entity/Passenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/AirportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/AirportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/AirportFlightsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/AirportFlightsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/controller/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/service/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/service/FlightService.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/service/FlightService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/service/PassengerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/airline/airline-server/src/main/java/com/anaene/airlineserver/web/service/PassengerService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,6 +41,11 @@
             <path>
               <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
               <item name="web-projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-projects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-projects" type="462c0819:PsiDirectoryNode" />
+              <item name="airline" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -144,7 +135,8 @@
       <workItem from="1565001005461" duration="145000" />
       <workItem from="1565042198253" duration="731000" />
       <workItem from="1565107986818" duration="717000" />
-      <workItem from="1565434915414" duration="756000" />
+      <workItem from="1565434915414" duration="1445000" />
+      <workItem from="1565610906052" duration="30000" />
     </task>
     <task id="LOCAL-00001" summary="intergrated into intellij">
       <created>1562351564244</created>
@@ -171,7 +163,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3687000" />
+    <option name="totallyTimeSpent" value="4406000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -183,7 +175,6 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -195,6 +186,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />

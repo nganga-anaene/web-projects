@@ -11,9 +11,9 @@ import java.util.List;
 
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 
-    List<Flight> findByDepartureTimeAfter(LocalDateTime departureTime);
-
     Page<Flight> findByArrivalAirport(Airport arrivalAirport, Pageable pageable);
 
     Page<Flight> findByDepartingAirport(Airport departingAirport, Pageable pageable);
+
+    List<Flight> findByDepartingAirportAndArrivalAirportAndDepartureTimeAfter(Airport departingAirport, Airport arrivalAirport, LocalDateTime departureTime);
 }

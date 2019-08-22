@@ -1,33 +1,35 @@
 package com.anaene.airlineserver.web.controller;
 
-import com.anaene.airlineserver.web.service.ClientService;
-import com.anaene.airlineserver.web.service.PassengerService;
+import com.anaene.airlineserver.web.controller.util.LoggedStatus;
+import com.anaene.airlineserver.web.service.LoginService;
+import org.springframework.hateoas.Resource;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("login")
 public class LoginController {
 
-    private final PassengerService passengerService;
-    private final ClientService clientService;
 
-    public LoginController(PassengerService passengerService, ClientService clientService) {
-        this.passengerService = passengerService;
-        this.clientService = clientService;
+    private final LoginService loginService;
+
+    public LoginController(LoginService loginService) {
+        this.loginService = loginService;
     }
 
-    @PostMapping("")
-    public ResponseEntity login() {
+
+    @GetMapping("login")
+    public ResponseEntity<Resource<LoggedStatus>> login() {
         try {
-            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            return ResponseEntity.ok(passengerService.getPassengerResource(clientService.getPassengerId(user.getUsername())));
+            return ResponseEntity.ok(loginService.loggedIn());
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Failed to login");
+            return ResponseEntity.badRequest().body(loginService.notLoggedIn());
         }
+    }
+
+    @GetMapping("logout")
+    public ResponseEntity<Resource<LoggedStatus>> logout() {
+        return ResponseEntity.ok(loginService.loggedOut());
     }
 }

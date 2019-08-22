@@ -8,13 +8,15 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
 @Data
-@EqualsAndHashCode(exclude = {"flight", "passenger"})
-@ToString(exclude = {"flight", "passenger"})
-@NamedEntityGraph(name = "booking.full", attributeNodes = {@NamedAttributeNode("passenger"), @NamedAttributeNode("flight")})
+@EqualsAndHashCode(exclude = {"flights", "passenger"})
+@ToString(exclude = {"flights", "passenger"})
+@NamedEntityGraph(name = "booking.full", attributeNodes = {@NamedAttributeNode("passenger"), @NamedAttributeNode("flights")})
 public class Booking {
 
     @Id
@@ -23,15 +25,23 @@ public class Booking {
     @ManyToOne(optional = false)
     private Passenger passenger;
 
-    @ManyToOne(optional = false)
-    private Flight flight;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Flight> flights = new HashSet<>();
     private LocalDateTime purchaseDate;
     private BigDecimal purchasePrice;
     @ManyToOne
     private PaymentCard paymentCard;
 
-    public Booking(Flight flight, LocalDateTime purchaseDate, BigDecimal purchasePrice, PaymentCard paymentCard) {
-        this.flight = flight;
+    public Booking(Set<Flight> flights, LocalDateTime purchaseDate, BigDecimal purchasePrice, PaymentCard paymentCard) {
+        this.flights = flights;
+        this.purchaseDate = purchaseDate;
+        this.purchasePrice = purchasePrice;
+        this.paymentCard = paymentCard;
+    }
+
+    public Booking(Passenger passenger, Set<Flight> flights, LocalDateTime purchaseDate, BigDecimal purchasePrice, PaymentCard paymentCard) {
+        this.passenger = passenger;
+        this.flights = flights;
         this.purchaseDate = purchaseDate;
         this.purchasePrice = purchasePrice;
         this.paymentCard = paymentCard;
@@ -39,7 +49,7 @@ public class Booking {
 
     public Booking(Passenger passenger, Flight flight, LocalDateTime purchaseDate, BigDecimal purchasePrice, PaymentCard paymentCard) {
         this.passenger = passenger;
-        this.flight = flight;
+        this.flights.add(flight);
         this.purchaseDate = purchaseDate;
         this.purchasePrice = purchasePrice;
         this.paymentCard = paymentCard;

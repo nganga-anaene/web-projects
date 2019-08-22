@@ -6,12 +6,12 @@ import com.anaene.airlineserver.web.controller.AirportFlightsController;
 import com.anaene.airlineserver.web.resource.AirportResourceAssembler;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.web.PagedResourcesAssembler;
-import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
@@ -27,9 +27,9 @@ public class AirportService {
         this.airportResourceAssembler = airportResourceAssembler;
     }
 
-    public PagedResources<Resource<Airport>> getAirportsResourcePage(int page, int size, PagedResourcesAssembler<Airport> pagedResourcesAssembler) {
-        Page<Airport> airportPage = getAirportsPage(page, size);
-        return pagedResourcesAssembler.toResource(airportPage, airportResourceAssembler);
+
+    public Resources<Resource<Airport>> getAllAirports() {
+        return new Resources<>(airportRepository.findAll().stream().map(airportResourceAssembler::toResource).collect(Collectors.toList()));
     }
 
     public Page<Airport> getAirportsPage(int page, int size) {

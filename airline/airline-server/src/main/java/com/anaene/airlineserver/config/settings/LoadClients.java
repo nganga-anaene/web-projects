@@ -32,8 +32,7 @@ public class LoadClients {
             Client client = new Client(name, username, password, passenger);
             clientRepository.save(client);
         });
-        Client client = clientRepository.findAll().stream().findFirst().get();
-        System.out.println(client.getUsername() + " " + client.getPassword());
+        clientRepository.findAll().stream().limit(4).forEach(client -> System.out.println(client.getUsername()));
     }
 
     private String setUsername(Name name, ClientRepository clientRepository) {
