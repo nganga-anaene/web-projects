@@ -12,17 +12,22 @@ import {
   MatCardModule,
   MatDatepickerModule,
   MatFormFieldModule,
-  MatInputModule, MatNativeDateModule,
+  MatInputModule,
+  MatNativeDateModule,
   MatTabsModule
 } from '@angular/material';
-import { LoginComponent } from './login/login.component';
+import {LoginComponent} from './login/login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { AccountComponent } from './account/account.component';
-import { BookingsComponent } from './bookings/bookings.component';
-import { PassportComponent } from './passport/passport.component';
-import { PaymentCardsComponent } from './payment-cards/payment-cards.component';
-import { FlightsComponent } from './flights/flights.component';
-import { AirportChooserComponent } from './flights/airport-chooser/airport-chooser.component';
+import {AccountComponent} from './account/account.component';
+import {BookingsComponent} from './bookings/bookings.component';
+import {PassportComponent} from './passport/passport.component';
+import {PaymentCardsComponent} from './payment-cards/payment-cards.component';
+import {FlightsComponent} from './flights/flights.component';
+import {AirportsComponent} from './flights/airports/airports.component';
+import {AirportSelectorComponent} from './flights/airports/airport-selector/airport-selector.component';
+import {DateSelectorComponent} from './flights/date-selector/date-selector.component';
+import {ReturnFlightComponent} from './flights/return-flight/return-flight.component';
+import {SingleFlightComponent} from './flights/single-flight/single-flight.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,11 @@ import { AirportChooserComponent } from './flights/airport-chooser/airport-choos
     PassportComponent,
     PaymentCardsComponent,
     FlightsComponent,
-    AirportChooserComponent,
+    AirportsComponent,
+    AirportSelectorComponent,
+    DateSelectorComponent,
+    ReturnFlightComponent,
+    SingleFlightComponent,
   ],
   imports: [
     BrowserModule,
