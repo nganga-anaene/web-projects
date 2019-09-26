@@ -5,7 +5,6 @@ import com.anaene.airlineserver.data.entity.Flight;
 import com.anaene.airlineserver.data.repository.AirportRepository;
 import com.anaene.airlineserver.data.repository.FlightRepository;
 import com.anaene.airlineserver.web.controller.AirportController;
-import com.anaene.airlineserver.web.controller.AirportFlightsController;
 import com.anaene.airlineserver.web.resource.FlightResourceAssembler;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,6 +14,7 @@ import org.springframework.hateoas.Resource;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,40 +35,25 @@ public class FlightService {
         this.flightResourceAssembler = flightResourceAssembler;
     }
 
-    public PagedResources<Resource<Flight>> getAirportFlightsArrivalPage(long airportId, int page, int size) {
-        Airport airport = airportRepository.findById(airportId).orElseThrow();
-        Page<Flight> flightPage = flightRepository.findByArrivalAirport(airport, PageRequest.of(page, size));
-        PagedResourcesAssembler<Flight> pagedAssembler = new PagedResourcesAssembler<>(null, null);
-        PagedResources<Resource<Flight>> resources = pagedAssembler.toResource(flightPage, flightResourceAssembler);
-        resources.add(linkTo(methodOn(AirportController.class).getAirportById(airportId)).withRel("arrival-airport"));
+    @Transactional
+    public PagedResources<Resource<Flight>> getFlightByDepartureAndArrivalAirports(long departureAirportId, long arrivalAirportId, String date, int page, int size) {
+        Airport departureAirport = airportRepository.findById(departureAirportId).orElseThrow();
+        Airport arrivalAirport = airportRepository.findById(arrivalAirportId).orElseThrow();
+        LocalDateTime localDateTime = parseDate(date);
+        Page<Flight> flightPage = flightRepository.findByDepartingAirportAndArrivalAirportAndDepartureTimeAfter(departureAirport, arrivalAirport, localDateTime, PageRequest.of(page, size));
+        PagedResourcesAssembler<Flight> pagedResourcesAssembler = new PagedResourcesAssembler<>(null, null);
+        PagedResources<Resource<Flight>> resources = pagedResourcesAssembler.toResource(flightPage, flightResourceAssembler);
+        resources.add(linkTo(methodOn(AirportController.class).getAirportById(departureAirportId)).withRel("departing-airport"));
+        resources.add(linkTo(methodOn(AirportController.class).getAirportById(arrivalAirportId)).withRel("arrival-airport"));
         return resources;
     }
 
-    public PagedResources<Resource<Flight>> getAirportFlightsDeparturePage(long airportId, int page, int size) {
-        Airport airport = airportRepository.findById(airportId).orElseThrow();
-        Page<Flight> flightPage = flightRepository.findByDepartingAirport(airport, PageRequest.of(page, size));
-        PagedResourcesAssembler<Flight> pagedAssembler = new PagedResourcesAssembler<>(null, null);
-        PagedResources<Resource<Flight>> resources = pagedAssembler.toResource(flightPage, flightResourceAssembler);
-        resources.add(linkTo(methodOn(AirportController.class).getAirportById(airportId)).withRel("departure-airport"));
-        return resources;
-    }
-
-    @Transactional
-    public Resource<Flight> getArrivalFlightResource(long airportId, long flightId) {
-        Flight flight = flightRepository.findById(flightId).orElseThrow();
-        Resource<Flight> resource = flightResourceAssembler.toResource(flight);
-        resource.add(linkTo(methodOn(AirportFlightsController.class).getArrivalFlight(airportId, flightId)).withSelfRel());
-        resource.add(linkTo(methodOn(AirportController.class).getAirportById(flight.getArrivalAirport().getId())).withRel("arrival-airport"));
-        return resource;
-    }
-
-    @Transactional
-    public Resource<Flight> getDepartureFlightResource(long airportId, long flightId) {
-        Flight flight = flightRepository.findById(flightId).orElseThrow();
-        Resource<Flight> resource = flightResourceAssembler.toResource(flight);
-        resource.add(linkTo(methodOn(AirportFlightsController.class).findDepartureFlight(airportId, flightId)).withSelfRel());
-        resource.add(linkTo(methodOn(AirportController.class).getAirportById(flight.getArrivalAirport().getId())).withRel("departure-airport"));
-        return resource;
+    private LocalDateTime parseDate(String date) {
+        LocalDate localDate = LocalDate.parse(date);
+        if (localDate.atStartOfDay().isEqual(LocalDateTime.now().toLocalDate().atStartOfDay())) {
+            return LocalDateTime.now();
+        }
+        return localDate.atStartOfDay();
     }
 
     @Transactional
@@ -80,5 +65,30 @@ public class FlightService {
     public List<Flight> getEmptyFlights(Airport departureAirport, Airport arrivalAirport, LocalDateTime departureDate) {
         return flightRepository.findByDepartingAirportAndArrivalAirportAndDepartureTimeAfter(departureAirport, arrivalAirport, departureDate)
                 .stream().filter(f -> f.getMaxBookings() > f.getBookings().size()).collect(Collectors.toList());
+    }
+
+    @Transactional
+    public Resource<Flight> getFlightById(long flightId) {
+        Flight flight = flightRepository.findById(flightId).orElseThrow();
+        Resource<Flight> resource = flightResourceAssembler.toResource(flight);
+        resource.add(linkTo(methodOn(AirportController.class).getAirportById(flight.getDepartingAirport().getId())).withRel("departure-airport"));
+        resource.add(linkTo(methodOn(AirportController.class).getAirportById(flight.getArrivalAirport().getId())).withRel("arrival-airport"));
+        return resource;
+    }
+
+    @Transactional
+    public PagedResources<Resource<Flight>> getDepartingFlights(long airportId, int page, int size) {
+        Airport departingAirport = airportRepository.findById(airportId).orElseThrow();
+        Page<Flight> flightPage = flightRepository.findByDepartingAirport(departingAirport, PageRequest.of(page, size));
+        PagedResourcesAssembler<Flight> pagedResourcesAssembler = new PagedResourcesAssembler<>(null, null);
+        return pagedResourcesAssembler.toResource(flightPage, flightResourceAssembler);
+    }
+
+    @Transactional
+    public PagedResources<Resource<Flight>> getArrivalFlights(long airportId, int page, int size) {
+        Airport departingAirport = airportRepository.findById(airportId).orElseThrow();
+        Page<Flight> flightPage = flightRepository.findByArrivalAirport(departingAirport, PageRequest.of(page, size));
+        PagedResourcesAssembler<Flight> pagedResourcesAssembler = new PagedResourcesAssembler<>(null, null);
+        return pagedResourcesAssembler.toResource(flightPage, flightResourceAssembler);
     }
 }

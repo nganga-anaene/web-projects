@@ -5,6 +5,8 @@ import com.anaene.airlineserver.data.entity.Passenger;
 import com.anaene.airlineserver.data.entity.util.Name;
 import com.anaene.airlineserver.data.repository.ClientRepository;
 import com.anaene.airlineserver.web.service.PassengerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -16,6 +18,7 @@ public class LoadClients {
     private final PassengerService passengerService;
     private final ClientRepository clientRepository;
     private final AppUtils appUtils;
+    private Logger logger = LoggerFactory.getLogger(LoadClients.class);
 
     public LoadClients(PassengerService passengerService, ClientRepository clientRepository, AppUtils appUtils) {
         this.passengerService = passengerService;
@@ -32,7 +35,7 @@ public class LoadClients {
             Client client = new Client(name, username, password, passenger);
             clientRepository.save(client);
         });
-        clientRepository.findAll().stream().limit(4).forEach(client -> System.out.println(client.getUsername()));
+        clientRepository.findAll().stream().limit(4).forEach(client -> logger.info("Username: {}", client.getUsername()));
     }
 
     private String setUsername(Name name, ClientRepository clientRepository) {

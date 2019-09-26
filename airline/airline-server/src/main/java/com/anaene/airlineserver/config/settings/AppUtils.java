@@ -21,9 +21,11 @@ public class AppUtils {
     public LocalDate getDateOfBirth(int age) {
         Random r = new Random();
         LocalDate localDate = LocalDate.now();
-        int year = localDate.plusYears(-age).getYear();
-        int month = r.nextInt(12) + 1;
-        localDate = LocalDate.of(year, month, localDate.getDayOfMonth());
+        localDate = localDate.minusYears(age);
+        int month = r.nextInt(12) - 6;
+        localDate = localDate.plusMonths(month);
+        int day = r.nextInt(30) - 15;
+        localDate = localDate.plusDays(day);
         return localDate.plusDays(r.nextInt(30));
     }
 

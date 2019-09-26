@@ -39,8 +39,8 @@ public class AirportService {
     public Resource<Airport> getAirportResource(long id) {
         Airport airport = getAirport(id);
         Resource<Airport> resource = airportResourceAssembler.toResource(airport);
-        resource.add(linkTo(methodOn(AirportFlightsController.class).getAirportArrivalFlightsPage(id, 0, 10)).withRel("arrival-flights"));
-        resource.add(linkTo(methodOn(AirportFlightsController.class).getAirportDepartureFlightsPage(id, 0, 10)).withRel("departure-flights"));
+        resource.add(linkTo(methodOn(AirportFlightsController.class).getDepartingFlights(id, 0, 10)).withRel("arrival-flights"));
+        resource.add(linkTo(methodOn(AirportFlightsController.class).getArrivalFlights(id, 0, 10)).withRel("departure-flights"));
         return resource;
     }
 

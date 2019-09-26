@@ -1,12 +1,15 @@
 package com.anaene.airlineserver.web.service;
 
 import com.anaene.airlineserver.data.entity.Booking;
+import com.anaene.airlineserver.data.entity.Flight;
+import com.anaene.airlineserver.data.entity.Passenger;
 import com.anaene.airlineserver.data.repository.BookingRepository;
 import com.anaene.airlineserver.web.resource.BookingResourceAssembler;
 import org.springframework.hateoas.Resource;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Set;
 
 @Service
 public class BookingService {
@@ -19,10 +22,6 @@ public class BookingService {
         this.bookingResourceAssembler = bookingResourceAssembler;
     }
 
-    public BookingResourceAssembler getBookingResourceAssembler() {
-        return bookingResourceAssembler;
-    }
-
     @Transactional
     public Booking getBookingById(long id) {
         return bookingRepository.findFullBookingById(id).orElseThrow();
@@ -32,7 +31,9 @@ public class BookingService {
         return bookingResourceAssembler.toResource(booking);
     }
 
+    @Transactional
     public Booking saveBooking(Booking booking) {
         return bookingRepository.save(booking);
     }
+
 }

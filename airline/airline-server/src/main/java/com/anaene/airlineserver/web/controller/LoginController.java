@@ -6,6 +6,7 @@ import org.springframework.hateoas.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -31,5 +32,10 @@ public class LoginController {
     @GetMapping("logout")
     public ResponseEntity<Resource<LoggedStatus>> logout() {
         return ResponseEntity.ok(loginService.loggedOut());
+    }
+
+    @GetMapping("/user/{username}")
+    public ResponseEntity<Boolean> userExists(@PathVariable String username) {
+        return ResponseEntity.ok(loginService.userExists(username));
     }
 }
