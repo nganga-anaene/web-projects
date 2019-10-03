@@ -19,9 +19,8 @@ public class CustomerResourceAssembler implements ResourceAssembler<Customer, Re
         if (customer.getName() == null || customer.getAddresses().isEmpty() || customer.getUser() == null) {
             resource.add(linkTo(methodOn(AccountController.class).completeRegistration(customer)).withRel("complete-registration"));
         }
-        if (!customer.getCustomerOrders().isEmpty()) {
-            resource.add(linkTo(CustomerOrderController.class).withRel("orders"));
-        }
+        resource.add(linkTo(CustomerOrderController.class).withRel("orders"));
+        resource.add(linkTo(methodOn(AccountController.class).getCustomerAddresses()).withRel("addresses"));
         return resource;
     }
 }

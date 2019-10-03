@@ -33,7 +33,6 @@ public class Publisher {
     private Address address;
 
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    @JsonManagedReference
     @OneToMany(mappedBy = "publisher", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Book> books = new HashSet<>();
 

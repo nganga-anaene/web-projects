@@ -8,11 +8,14 @@ import bookstore.data.entity.util.OrderStatus;
 import bookstore.data.repository.AddressRepository;
 import bookstore.data.repository.CustomerOrderRepository;
 import bookstore.data.repository.CustomerRepository;
-import bookstore.server.config.SecurityConfiguration;
+import bookstore.web.controller.AccountController;
 import bookstore.web.exception.CustomerNotFoundException;
 import bookstore.web.exception.CustomerOrderNotFoundException;
+import bookstore.web.resource.AddressResourceAssembler;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
 import org.springframework.lang.NonNull;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,7 +23,12 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityExistsException;
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @Service
 public class CustomerService {
@@ -28,13 +36,15 @@ public class CustomerService {
     private final CustomerRepository customerRepository;
     private final CustomerOrderRepository customerOrderRepository;
     private final AddressRepository addressRepository;
-    private final SecurityConfiguration config;
+    private final AddressResourceAssembler addressResourceAssembler;
 
-    public CustomerService(CustomerRepository customerRepository, CustomerOrderRepository customerOrderRepository, AddressRepository addressRepository, SecurityConfiguration config) {
+    public CustomerService(CustomerRepository customerRepository, CustomerOrderRepository customerOrderRepository,
+                           AddressRepository addressRepository,
+                           AddressResourceAssembler addressResourceAssembler) {
         this.customerRepository = customerRepository;
         this.customerOrderRepository = customerOrderRepository;
         this.addressRepository = addressRepository;
-        this.config = config;
+        this.addressResourceAssembler = addressResourceAssembler;
     }
 
     public Customer findCustomerByUsername(String username) throws CustomerNotFoundException {
@@ -118,5 +128,24 @@ public class CustomerService {
 
     private PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Transactional
+    public Address getAddress(long id) {
+        return addressRepository.findById(id).get();
+    }
+
+    public Resource<Address> getAddressResource(long id) {
+        Address address = getAddress(id);
+        Resource<Address> resource = addressResourceAssembler.toResource(address);
+        resource.add(linkTo(methodOn(AccountController.class).getCustomerAddresses()).withRel("addresses"));
+        return resource;
+    }
+
+    public Resources<Resource<Address>> getCustomerAddressResources(Customer customer) {
+        List<Resource<Address>> list = customer.getAddresses().stream().map(addressResourceAssembler::toResource).collect(Collectors.toList());
+        Resources<Resource<Address>> resources = new Resources<>(list);
+        resources.add(linkTo(methodOn(AccountController.class).getCustomerAddresses()).withSelfRel());
+        return  resources;
     }
 }

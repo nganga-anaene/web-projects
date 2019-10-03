@@ -78,14 +78,12 @@ public class BookController {
         }
     }
 
-    @GetMapping(value = "", params = {"page", "size"})
-    public ResponseEntity<PagedResources<Resource<Book>>> getBooks(@RequestParam int page, @RequestParam int size, PagedResourcesAssembler<Book> pagedResourcesAssembler) {
+    @GetMapping(value = "")
+    public ResponseEntity<PagedResources<Resource<Book>>> getBooks(
+            @RequestParam(required = false, defaultValue = "0") int page,
+            @RequestParam(required = false, defaultValue = "10") int size,
+            PagedResourcesAssembler<Book> pagedResourcesAssembler) {
         return getPagedResources(page, size, pagedResourcesAssembler);
-    }
-
-    @GetMapping("")
-    public ResponseEntity<PagedResources<Resource<Book>>> getBooks(PagedResourcesAssembler<Book> pagedResourcesAssembler) {
-        return getPagedResources(0, 10, pagedResourcesAssembler);
     }
 
     public ResponseEntity<PagedResources<Resource<Book>>> getPagedResources(int page, int size, PagedResourcesAssembler<Book> pagedResourcesAssembler) {
@@ -104,5 +102,13 @@ public class BookController {
         } catch (BookNotFoundException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<Resources<Resource<String>>> getBookTitles() {
+        Resources<Resource<String>> bookTitles = new Resources<>(bookService.getBookTitles());
+        bookTitles.add(linkTo(methodOn(BookController.class).getBookTitles()).withSelfRel());
+        bookTitles.add(linkTo(BookController.class).withRel("books"));
+        return ResponseEntity.ok(bookTitles);
     }
 }

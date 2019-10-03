@@ -33,13 +33,13 @@ public class Customer {
     private Name name;
     @Embedded
     @JsonUnwrapped
+    @JsonIgnore
     private AppUser user;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    @JsonManagedReference
     private Set<Address> addresses = new HashSet<>();
 
     @OneToMany(mappedBy = "customer", orphanRemoval = true, cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonIgnore
     private List<CustomerOrder> customerOrders = new ArrayList<>();
 
     public Customer(Name name, AppUser user) {

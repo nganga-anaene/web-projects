@@ -22,11 +22,9 @@ public class CustomerOrder {
     @GeneratedValue
     private long id;
     @ManyToOne
-    @JsonBackReference
     private Customer customer;
     @OneToMany
     @JoinColumn
-    @JsonManagedReference
     private Set<BookItem> bookItems = new HashSet<>();
     private BigDecimal total = BigDecimal.ZERO;
     @ManyToOne
