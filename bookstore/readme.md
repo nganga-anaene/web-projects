@@ -6,3 +6,6 @@
 
 <p>The project will follow the diagram below</p>
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/model.png"></a>
+
+<h3>Webpages</h3>
+<a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/bookstore-homepage.png"></a>
