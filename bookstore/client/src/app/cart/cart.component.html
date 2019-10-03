@@ -1,0 +1,27 @@
+<div *ngIf="(cartItems | async);let items">
+  <div *ngIf="hasItems(items)">
+    <ul>
+      <li *ngFor="let item of items">
+        <div>
+          <img [src]="'assets/' + item.book.imageUrl">
+          <div>
+            <h4>{{item.book.title}}</h4>
+            <div>By <span>{{item.book.firstName}} {{item.book.lastName}}</span></div>
+            <div>{{item.total | currency}}</div>
+            <div>
+              <button (click)="deleteBookItem(item.id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div>
+      <div>Total: {{ getTotal(items)| async | currency }}</div>
+      <button>Checkout</button>
+    </div>
+  </div>
+  <div *ngIf="!hasItems(items)">
+    <div>No Items In cart</div>
+    <button routerLink="/books">Browse Books</button>
+  </div>
+</div>

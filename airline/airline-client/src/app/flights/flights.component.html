@@ -1,0 +1,15 @@
+<div>
+  <mat-tab-group>
+    <mat-tab label="Single Flight">
+      <app-single-flight (singleFlightDetails)="processSingleFlights($event)"></app-single-flight>
+    </mat-tab>
+    <mat-tab label="Return Flight">
+      <ng-template matTabContent>
+        <app-return-flight (returnFlightDetails)="processReturnFlights($event)"></app-return-flight>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<div>
+  <app-flight-selector></app-flight-selector>
+</div>

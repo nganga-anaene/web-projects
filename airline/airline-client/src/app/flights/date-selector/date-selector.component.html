@@ -1,0 +1,6 @@
+<mat-form-field>
+  <input matInput [matDatepicker]="flightDate" [min]="dateToday()" [placeholder]="dateTitle"
+         [formControl]="dateControl" (dateChange)="setDate($event)" (click)="flightDate.open()">
+  <mat-datepicker-toggle matSuffix [for]="flightDate"></mat-datepicker-toggle>
+  <mat-datepicker #flightDate></mat-datepicker>
+</mat-form-field>

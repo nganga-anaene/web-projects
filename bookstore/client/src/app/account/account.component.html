@@ -1,0 +1,22 @@
+<div>
+  <h4>Orders</h4>
+  <div *ngIf="(orders|async); let orderList">
+    <div *ngIf="checkItems(orderList)">
+      <div *ngFor="let order of orderList">
+        <div *ngIf="checkItems(order.bookItems)">
+          <div *ngFor="let bookItem of order.bookItems">
+            <img [src]="'assets/' + bookItem.book.imageUrl" alt="">
+            <div>{{bookItem.book.title}}</div>
+          </div>
+          <div>
+            <div>{{getTotal(order.bookItems)}}</div>
+            <button *ngIf="!checkOrderStatus(order.orderStatus)" (click)="cancelOrder(order.id)">Cancel Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!checkItems(orderList)">
+      No Orders
+    </div>
+  </div>
+</div>

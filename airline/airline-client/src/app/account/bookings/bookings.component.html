@@ -1,0 +1,22 @@
+<div>
+  <mat-card *ngFor="let booking of bookings|async" routerLink="/account/bookings/{{booking.id}}">
+    <mat-card-content>
+      <div>
+        <mat-card-subtitle>Booking Id</mat-card-subtitle>
+        <div>{{booking.id}}</div>
+      </div>
+      <div>
+        <mat-card-subtitle>Date Purchased</mat-card-subtitle>
+        <div>{{booking.purchaseDate}}</div>
+      </div>
+      <div>
+        <mat-card-subtitle>Price</mat-card-subtitle>
+        <div>{{booking.purchasePrice}}</div>
+      </div>
+      <div>
+        <mat-card-subtitle>Payment Card</mat-card-subtitle>
+        <div>{{booking.paymentCard.cardNumber}}</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

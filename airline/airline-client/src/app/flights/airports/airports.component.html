@@ -1,0 +1,4 @@
+<app-airport-selector #departureAirport [pairedAirportNameControl]="arrivalAirport.airportNameControl"
+                      [formLabel]="'From'" (selectedOption)="setDepartureAirport($event)"></app-airport-selector>
+<app-airport-selector #arrivalAirport [pairedAirportNameControl]="departureAirport.airportNameControl"
+                      [formLabel]="'To'" (selectedOption)="setArrivalAirport($event)"></app-airport-selector>

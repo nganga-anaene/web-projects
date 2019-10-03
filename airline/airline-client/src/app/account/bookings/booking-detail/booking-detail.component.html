@@ -1,0 +1,44 @@
+<div *ngIf="booking != null">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Booking Id: {{booking.id}}</mat-card-title>
+    </mat-card-header>
+    <div>
+      <mat-card-subtitle>Price</mat-card-subtitle>
+      <div>{{booking.purchasePrice | currency}}</div>
+    </div>
+    <div>
+      <mat-card-subtitle>Purchase Date</mat-card-subtitle>
+      <div>{{booking.purchaseDate}}</div>
+    </div>
+    <div>
+      <mat-card-subtitle>Flights</mat-card-subtitle>
+      <div *ngFor="let f of booking.flights">
+        <mat-card>
+          <div>
+            <mat-card-subtitle>Departing Airport</mat-card-subtitle>
+            <div>{{f.departingAirport.name}}</div>
+          </div>
+          <div>
+            <mat-card-subtitle>Departure Time</mat-card-subtitle>
+            <div>{{setDate(f.departureTime)}}</div>
+            <mat-card-subtitle>Arrival Time</mat-card-subtitle>
+            <div>{{setDate(f.arrivalTime)}}</div>
+          </div>
+          <div>
+            <mat-card-subtitle>Arrival Airport</mat-card-subtitle>
+            <div>{{f.arrivalAirport.name}}</div>
+          </div>
+          <div>
+            <mat-card-subtitle>Flight Duration</mat-card-subtitle>
+            <div>{{getFlightDuration(f.departureTime, f.arrivalTime)}}</div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div>
+      <button routerLink="/account" mat-button>Account</button>
+      <button routerLink="/account/bookings" mat-button>Bookings</button>
+    </div>
+  </mat-card>
+</div>

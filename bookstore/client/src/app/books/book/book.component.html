@@ -1,0 +1,30 @@
+<div *ngIf="bookResource | async; let book" class="app-content">
+  <div class="">
+    <div>
+      <img [src]="'assets/' + book.imageUrl" class="">
+    </div>
+    <div>
+      <div>
+        <h4>{{book.title}}</h4>
+        <p>{{book.synopsis}}</p>
+      </div>
+      <div *ngIf="bookItemsResource | async; let bookItems">
+        <div *ngIf="!(hasSelectedBookItem | async)">
+          <div>{{getPrice(bookItems, options.selectedIndex) | currency}}</div>
+          <select #options>
+            <option *ngFor="let bookItem of bookItems">
+              {{bookItem.amount}}
+            </option>
+          </select>
+          <button (click)="addToBasket(options.selectedIndex, bookItems)">Add To Basket</button>
+        </div>
+<!--        TODO build item-->
+        <div *ngIf="hasSelectedBookItem | async">
+          <button routerLink="/checkout">View Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="authorResource | async; let author">
+  </div>
+</div>

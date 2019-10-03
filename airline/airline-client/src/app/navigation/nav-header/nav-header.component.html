@@ -1,0 +1,10 @@
+<nav>
+  <button mat-button routerLink="flights">Flights</button>
+  <button mat-button [mat-menu-trigger-for]="accountMenu">Account</button>
+  <mat-menu #accountMenu="matMenu">
+    <button mat-menu-item routerLink="account">Account</button>
+    <button mat-menu-item routerLink="account/bookings">Bookings</button>
+  </mat-menu>
+  <button mat-button routerLink="login" *ngIf="!isLoggedIn()">Login</button>
+  <button mat-button *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
+</nav>

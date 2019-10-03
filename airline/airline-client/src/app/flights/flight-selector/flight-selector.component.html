@@ -1,0 +1,49 @@
+<mat-card *ngIf="flightsFound()">
+  <div *ngIf="hasChosenForwardFlight()">
+    <mat-card-header>
+      <mat-card-title>{{selectedFlightsText()}}</mat-card-title>
+    </mat-card-header>
+    <div>
+      <mat-card>
+        <mat-card-content>
+          <app-destination [flightResource]="getForwardFlight()"></app-destination>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div *ngIf="hasChosenReturnFlight()">
+      <mat-card>
+        <mat-card-content>
+          <app-destination [flightResource]="getReturnFlight()"></app-destination>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div *ngIf="!hasChosenForwardFlight()">
+    <mat-card-header>
+      <mat-card-title>Forward Flights</mat-card-title>
+    </mat-card-header>
+    <div>
+      <mat-card *ngFor="let flight of forwardFlights" (click)="chooseForwardFlight(flight)">
+        <mat-card-content>
+          <app-destination [flightResource]="flight"></app-destination>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <div *ngIf="hasReturnFlight && !hasChosenReturnFlight()">
+    <mat-card-header>
+      <mat-card-title>Return Flights</mat-card-title>
+    </mat-card-header>
+    <div>
+      <mat-card *ngFor="let returnFlight of returnFlights" (click)="chooseReturnFlight(returnFlight)">
+        <mat-card-content>
+          <app-destination [flightResource]="returnFlight"></app-destination>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <mat-card-footer *ngIf="hasSelectedFlights()">
+    <div>{{getPrice() | currency: '£'}}</div>
+    <button type="submit" (click)="processBooking()">CONTINUE</button>
+  </mat-card-footer>
+</mat-card>

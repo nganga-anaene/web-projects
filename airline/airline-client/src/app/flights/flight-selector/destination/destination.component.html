@@ -1,0 +1,16 @@
+<div>
+  <div>Duration: {{getDuration()}}</div>
+  <div>
+    <div>
+      <div>Outbound</div>
+      <div>{{getDepartureTime()}}</div>
+      <div>{{getDepartureAirport()}}</div>
+    </div>
+    <div>
+      <div>Inbound</div>
+      <div>{{getArrivalTime()}}</div>
+      <div>{{getArrivalAirport()}}</div>
+    </div>
+  </div>
+  <div>{{getPrice() | currency: '£'}}</div>
+</div>

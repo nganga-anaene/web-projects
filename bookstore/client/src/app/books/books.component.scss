@@ -1,0 +1,27 @@
+
+.row {
+  justify-content: center;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+.outer-card {
+  padding: 100px;
+}
+.card {
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px;
+}
+.card-img-top {
+  max-width: 150px;
+  width: 150px;
+  margin: 0 auto;
+}
+
+.card-body{
+  text-align: center;
+}
+
+a.active-page {
+  color: blue;
+}
