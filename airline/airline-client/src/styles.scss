@@ -1,2 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+$center-margin: 0 auto;
+$primary: #3f51b5;
+
+.centered-content {
+  margin: $center-margin;
+  justify-content: center;
+}
+
+.content-header {
+  @extend .centered-content;
+}
+
+.app-form {
+  width: 95%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.card-label {
+  color: #283593;
+}
+.card-field {
+  min-width: 100%;
+}
+
+.card-button {
+  background: $primary;
+  color: white;
+  width: 100px;
+}
+
+.card-content {
+  @extend .app-form;
+  max-width: 85%;
+  padding: 15px 0;
+}
+
+.card-container {
+  margin: 20px auto;
+}
+
+.card-header {
+  background-color: $primary;
+  color: #fff;
+  justify-content: center;
+  padding: 15px;
+}

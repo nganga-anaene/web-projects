@@ -1,7 +1,7 @@
-<mat-card *ngIf="flightsFound()">
+<mat-card *ngIf="flightsFound()" class="card-container">
   <div *ngIf="hasChosenForwardFlight()">
     <mat-card-header>
-      <mat-card-title>{{selectedFlightsText()}}</mat-card-title>
+      <mat-card-title class="card-header">{{selectedFlightsText()}}</mat-card-title>
     </mat-card-header>
     <div>
       <mat-card>
@@ -19,7 +19,7 @@
     </div>
   </div>
   <div *ngIf="!hasChosenForwardFlight()">
-    <mat-card-header>
+    <mat-card-header class="card-header">
       <mat-card-title>Forward Flights</mat-card-title>
     </mat-card-header>
     <div>

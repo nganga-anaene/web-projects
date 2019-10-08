@@ -1,18 +1,25 @@
-<mat-card>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <mat-label>{{loginLabel}}</mat-label>
-    <mat-error *ngIf=""></mat-error>
-    <mat-form-field class="login-field">
-      <mat-label>Username</mat-label>
-      <input type="text" matInput formControlName="username">
-    </mat-form-field>
-    <mat-form-field class="login-field">
-      <mat-label>Password</mat-label>
-      <input matInput formControlName="password" type="password">
-    </mat-form-field>
-    <button class="login-field" type="submit" mat-button>Submit</button>
-    <mat-divider [inset]="true"></mat-divider>
-    <mat-label>{{registerLabel}}</mat-label>
-    <button class="login-field" mat-button (click)="register()">Register</button>
-  </form>
-</mat-card>
+<mat-toolbar color="primary" class="centered-content">
+  <span>Login</span>
+</mat-toolbar>
+<div class="app-form">
+  <mat-card>
+    <mat-card-content class="card-content">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="login-field">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput formControlName="username">
+        </mat-form-field>
+        <mat-form-field class="login-field">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" type="password">
+        </mat-form-field>
+        <button class="login-field card-button" type="submit" mat-button>Submit</button>
+      </form>
+    </mat-card-content>
+    <mat-divider class="card-divider"></mat-divider>
+    <mat-card-content class="card-content">
+      <mat-label>{{registerLabel}}</mat-label>
+      <button class="login-field card-button" mat-button (click)="register()">Register</button>
+    </mat-card-content>
+  </mat-card>
+</div>

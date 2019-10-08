@@ -20,7 +20,7 @@ import {
   MatSelectModule,
   MatStepperModule,
   MatTableModule,
-  MatTabsModule
+  MatTabsModule, MatToolbarModule
 } from '@angular/material';
 import {LoginComponent} from './login/login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -95,6 +95,7 @@ export const MY_FORMATS = {
     MatSelectModule,
     MatTableModule,
     MatMenuModule,
+    MatToolbarModule,
   ],
   providers: [
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},

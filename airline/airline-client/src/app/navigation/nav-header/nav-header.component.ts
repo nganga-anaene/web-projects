@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AccountService} from '../../services/account.service';
 import {Router} from '@angular/router';
 
@@ -9,7 +9,8 @@ import {Router} from '@angular/router';
 })
 export class NavHeaderComponent implements OnInit {
 
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(private accountService: AccountService, private router: Router) {
+  }
 
   ngOnInit() {
   }

@@ -1,15 +1,22 @@
-<div>
-  <mat-tab-group>
-    <mat-tab label="Single Flight">
-      <app-single-flight (singleFlightDetails)="processSingleFlights($event)"></app-single-flight>
-    </mat-tab>
-    <mat-tab label="Return Flight">
-      <ng-template matTabContent>
-        <app-return-flight (returnFlightDetails)="processReturnFlights($event)"></app-return-flight>
-      </ng-template>
-    </mat-tab>
-  </mat-tab-group>
-</div>
-<div>
-  <app-flight-selector></app-flight-selector>
+<mat-toolbar color="primary" class="centered-content">
+  <span>Flights</span>
+</mat-toolbar>
+<div class="app-form">
+  <div>
+    <mat-card>
+      <mat-tab-group mat-align-tabs="center" backgroundColor="primary">
+        <mat-tab label="Single Trip">
+          <app-single-flight (singleFlightDetails)="processSingleFlights($event)"></app-single-flight>
+        </mat-tab>
+        <mat-tab label="Return Trip">
+          <ng-template matTabContent>
+            <app-return-flight (returnFlightDetails)="processReturnFlights($event)"></app-return-flight>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </div>
+  <div>
+    <app-flight-selector></app-flight-selector>
+  </div>
 </div>

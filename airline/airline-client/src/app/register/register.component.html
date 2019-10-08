@@ -1,75 +1,88 @@
-<mat-horizontal-stepper [linear]="true" #stepper>
-  <mat-step [stepControl]="user" [completed]="false">
-    <form [formGroup]="user">
-      <ng-template matStepLabel>Login Details</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Username" formControlName="username">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Password" formControlName="password" type="password">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password">
-      </mat-form-field>
-      <button mat-button (click)="checkLoginDetails(stepper)">Next</button>
-      <button mat-button *ngIf="userExists" (click)="returnToLogin()">Login</button>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="passport" [completed]="false">
-    <form [formGroup]="passport">
-      <ng-template matStepLabel>Passport Details</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Passport Number" formControlName="number">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="First Name" formControlName="firstName">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Last Name" formControlName="lastName">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Date Of Birth" formControlName="dateOfBirth" [matDatepicker]="dob"
-               [max]="dateToday()" (click)="dob.open()">
-        <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
-        <mat-datepicker #dob></mat-datepicker>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Place of Birth" formControlName="placeOfBirth">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-select formControlName="gender" placeholder="Gender">
-          <mat-option *ngFor="let g of getGenders()" [value]="g">
-            {{g}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Expiry Date" formControlName="expiryDate" [matDatepicker]="passportDate"
-               [min]="dateToday()" (click)="passportDate.open()">
-        <mat-datepicker-toggle matSuffix [for]="passportDate"></mat-datepicker-toggle>
-        <mat-datepicker #passportDate></mat-datepicker>
-      </mat-form-field>
-      <button matStepperPrevious mat-button>Previous</button>
-      <button mat-button matStepperNext>Next</button>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="paymentCard" [completed]="false">
-    <form [formGroup]="paymentCard">
-      <ng-template matStepLabel>Credit/Debit Card</ng-template>
-      <mat-form-field>
-        <input matInput placeholder="Card Name" formControlName="name">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Card Number" formControlName="number">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Card Expiry Date" formControlName="expiryDate" [matDatepicker]="cardDate"
-               [min]="dateToday()">
-        <mat-datepicker-toggle matSuffix [for]="cardDate"></mat-datepicker-toggle>
-        <mat-datepicker #cardDate></mat-datepicker>
-      </mat-form-field>
-      <button matStepperPrevious mat-button>Previous</button>
-      <button mat-button (click)="processRegistration()">Submit</button>
-    </form>
-  </mat-step>
-</mat-horizontal-stepper>
+<mat-toolbar color="primary" class="centered-content">
+  <span>Register</span>
+</mat-toolbar>
+<div class="app-form">
+  <mat-card>
+    <mat-horizontal-stepper [linear]="true" #stepper>
+      <mat-step [stepControl]="user" [completed]="false">
+        <form [formGroup]="user">
+          <ng-template matStepLabel>Login Details</ng-template>
+          <mat-card-content class="card-content">
+            <mat-form-field class="card-field">
+              <input matInput placeholder="Username" formControlName="username">
+            </mat-form-field>
+            <mat-form-field class="card-field">
+              <input matInput placeholder="Password" formControlName="password" type="password">
+            </mat-form-field>
+            <mat-form-field class="card-field">
+              <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password">
+            </mat-form-field>
+            <button mat-button (click)="checkLoginDetails(stepper)" class="card-button">Next</button>
+            <button mat-button *ngIf="userExists" (click)="returnToLogin()" class="card-button">Login</button>
+          </mat-card-content>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="passport" [completed]="false">
+        <form [formGroup]="passport">
+          <ng-template matStepLabel>Passport Details</ng-template>
+          <mat-card-content class="card-content">
+            <mat-form-field class="card-field">
+              <input matInput placeholder="Passport Number" formControlName="number">
+            </mat-form-field>
+            <mat-form-field class="card-field">
+              <input matInput placeholder="First Name" formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field class="card-field">
+              <input matInput placeholder="Last Name" formControlName="lastName">
+            </mat-form-field>
+            <mat-form-field class="card-field">
+              <input matInput placeholder="Date Of Birth" formControlName="dateOfBirth" [matDatepicker]="dob"
+                     [max]="dateToday()" (click)="dob.open()">
+              <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+              <mat-datepicker #dob></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="card-field">
+              <input matInput placeholder="Place of Birth" formControlName="placeOfBirth">
+            </mat-form-field>
+            <mat-form-field class="card-field">
+              <mat-select formControlName="gender" placeholder="Gender">
+                <mat-option *ngFor="let g of getGenders()" [value]="g">
+                  {{g}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="card-field">
+              <input matInput placeholder="Expiry Date" formControlName="expiryDate" [matDatepicker]="passportDate"
+                     [min]="dateToday()" (click)="passportDate.open()">
+              <mat-datepicker-toggle matSuffix [for]="passportDate"></mat-datepicker-toggle>
+              <mat-datepicker #passportDate></mat-datepicker>
+            </mat-form-field>
+            <button matStepperPrevious mat-button class="card-button">Previous</button>
+            <button mat-button matStepperNext class="card-button">Next</button>
+          </mat-card-content>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="paymentCard" [completed]="false">
+        <form [formGroup]="paymentCard">
+          <ng-template matStepLabel>Credit/Debit Card</ng-template>
+          <mat-card-content class="card-content">
+            <mat-form-field class="card-field">
+              <input matInput placeholder="Card Name" formControlName="name">
+            </mat-form-field>
+            <mat-form-field class="card-field">
+              <input matInput placeholder="Card Number" formControlName="number">
+            </mat-form-field>
+            <mat-form-field class="card-field">
+              <input matInput placeholder="Card Expiry Date" formControlName="expiryDate" [matDatepicker]="cardDate"
+                     [min]="dateToday()">
+              <mat-datepicker-toggle matSuffix [for]="cardDate"></mat-datepicker-toggle>
+              <mat-datepicker #cardDate></mat-datepicker>
+            </mat-form-field>
+            <button matStepperPrevious mat-button class="card-button">Previous</button>
+            <button mat-button (click)="processRegistration()" class="card-button">Submit</button>
+          </mat-card-content>
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-card>
+</div>

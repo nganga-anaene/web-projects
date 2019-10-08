@@ -1,10 +1,19 @@
-<nav>
-  <button mat-button routerLink="flights">Flights</button>
-  <button mat-button [mat-menu-trigger-for]="accountMenu">Account</button>
-  <mat-menu #accountMenu="matMenu">
-    <button mat-menu-item routerLink="account">Account</button>
-    <button mat-menu-item routerLink="account/bookings">Bookings</button>
-  </mat-menu>
-  <button mat-button routerLink="login" *ngIf="!isLoggedIn()">Login</button>
-  <button mat-button *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
-</nav>
+<mat-toolbar class="nav" color="primary">
+  <div class="nav-header">
+    <button mat-button>Airline</button>
+  </div>
+  <div>
+    <a mat-button routerLink="flights">Flights</a>
+    <a mat-button [mat-menu-trigger-for]="accountMenu">Account</a>
+    <mat-menu #accountMenu="matMenu">
+      <a mat-menu-item routerLink="account">Account</a>
+      <a mat-menu-item routerLink="account/bookings">Bookings</a>
+    </mat-menu>
+    <a mat-button *ngIf="!isLoggedIn()" [mat-menu-trigger-for]="loginMenu">Login</a>
+    <mat-menu #loginMenu="matMenu">
+      <a mat-menu-item routerLink="login">Login</a>
+      <a mat-menu-item routerLink="account/register">Register</a>
+    </mat-menu>
+    <a mat-button *ngIf="isLoggedIn()" (click)="logout()">Logout</a>
+  </div>
+</mat-toolbar>
