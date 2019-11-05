@@ -1,0 +1,46 @@
+<div *ngIf="bookResource | async; let book" class="container">
+  <div class="card">
+    <div class="row">
+      <div class="col-md-auto">
+        <img [src]="'assets/' + book.imageUrl" class="card-img">
+      </div>
+      <div class="col-md-7">
+        <div class="card-title">
+          <h4>{{book.title}}</h4>
+        </div>
+        <div>
+          <p class="card-text">{{book.synopsis}}</p>
+        </div>
+        <div class="" *ngIf="bookItemsResource | async; let bookItems">
+          <hr>
+          <div *ngIf="!(hasSelectedBookItem | async)">
+            <div>
+              <select #options (change)="setPrice(bookItems, options.selectedIndex)" class="custom-select bg-light">
+                <option *ngFor="let bookItem of bookItems">
+                  {{bookItem.amount}}
+                </option>
+              </select>
+            </div>
+            <div class="font-weight-bold text-center mt-1">
+              {{price | currency: '£'}}
+              <button class="btn btn-dark ml-2" (click)="addToBasket(options.selectedIndex, bookItems)">Add To Basket
+              </button>
+            </div>
+          </div>
+          <div *ngIf="hasSelectedBookItem | async">
+            <button routerLink="/checkout" type="button" class="btn btn-dark">View Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="authorResource | async; let author">
+  </div>
+  <div class="card">
+    <div class="card-header bg-dark text-white">
+      <h5 class="card-title">You might Like</h5>
+    </div>
+    <app-recommended-books></app-recommended-books>
+  </div>
+</div>
+<app-footer></app-footer>

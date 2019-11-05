@@ -1,0 +1,8 @@
+<mat-form-field appearance="outline" class="form-field">
+  <input matInput [formControl]="airportNameControl" [matAutocomplete]="airportNameOptions" (focus)="filterOptions()" [placeholder]="formLabel">
+  <mat-autocomplete #airportNameOptions (optionSelected)="sendSelection($event)">
+    <mat-option *ngFor="let option of options | async" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

@@ -9,7 +9,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,7 +17,6 @@ public class LoadAirports {
 
     private final AirportRepository airportRepository;
     private final AddressRepository addressRepository;
-    private List<Airport> airports = new ArrayList<>();
     private List<AirportInfo> airportInfoList = Arrays.asList(
             new AirportInfo("Heathrow", "London", "England"),
             new AirportInfo("Hartsfield-Jackson", "Atlanta", "USA"),

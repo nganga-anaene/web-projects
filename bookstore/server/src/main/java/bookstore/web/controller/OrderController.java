@@ -16,26 +16,25 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Set;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
 @RestController
-@RequestMapping("cart")
-public class CartController {
+@RequestMapping("order")
+public class OrderController {
 
 
     private final CustomerService customerService;
     private final BookService bookService;
 
-    public CartController(CustomerService customerService, BookService bookService) {
+    public OrderController(CustomerService customerService, BookService bookService) {
         this.customerService = customerService;
         this.bookService = bookService;
     }
 
-    @PostMapping(value = "")
-    public ResponseEntity<Resource<CustomerOrder>> getCustomerOrder(HttpServletResponse response, @RequestBody Order order, CustomerOrderResourceAssembler resourceAssembler) {
+    @GetMapping(value = "")
+    public ResponseEntity<Resource<CustomerOrder>> getCustomerOrder(@RequestBody Order order, CustomerOrderResourceAssembler resourceAssembler) {
         try {
             if (order.getBookItemIds().isEmpty()) throw new EntityNotFoundException();
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

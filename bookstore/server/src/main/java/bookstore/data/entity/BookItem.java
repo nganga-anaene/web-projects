@@ -22,7 +22,6 @@ public class BookItem {
     private long id;
     private int amount;
     @ManyToOne(optional = false)
-    @JsonManagedReference
     private Book book;
     private BigDecimal price;
     private BigDecimal total;

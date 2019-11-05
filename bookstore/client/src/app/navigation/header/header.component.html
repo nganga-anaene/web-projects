@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top fix-content">
+  <a class="navbar-brand text-secondary" routerLink="/books">{{storeName}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item border-bottom"
+          [ngClass]="{active: isActiveLink(booksUrl), 'border-bottom': isActiveLink(booksUrl), 'border-dark': isActiveLink(booksUrl)}">
+        <a class="nav-link" routerLink="/{{booksUrl}}">Books <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedIn()"
+          [ngClass]="{active: isActiveLink(loginUrl), 'border-bottom': isActiveLink(loginUrl), 'border-dark': isActiveLink(loginUrl)}">
+        <a class="nav-link" routerLink="/{{loginUrl}}">Sign In
+          <fa-icon [icon]="faUser"></fa-icon>
+        </a>
+      </li>
+      <li class="nav-item dropdown" dropdown *ngIf="isLoggedIn()"
+          [ngClass]="{active: isActiveLink(accountUrl), 'border-bottom': isActiveLink(accountUrl), 'border-dark': isActiveLink(accountUrl)}">
+        <a routerLink="/{{accountUrl}}" id="dropdown-button" dropdownToggle class="nav-link dropdown-toggle"
+           aria-controls="account-dropdown">Account</a>
+        <ul id="account-dropdown" class="dropdown-menu" *dropdownMenu role="menu" aria-labelledby="dropdown-button">
+          <li role="menuitem"><a class="dropdown-item" routerLink="/account">My Account</a></li>
+          <li role="menuitem"><a class="dropdown-item" routerLink="/account/orders">My Orders</a></li>
+          <li role="menuitem"><a class="dropdown-item" routerLink="/account/addresses">My Addresses</a></li>
+          <li role="menuitem"><a class="dropdown-item" routerLink="/account/details">My Details</a></li>
+        </ul>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+      <li class="nav-item"
+          [ngClass]="{active: isActiveLink(checkoutUrl), 'border-bottom': isActiveLink(checkoutUrl), 'border-dark': isActiveLink(checkoutUrl)}">
+        <a class="nav-link" routerLink="/{{checkoutUrl}}">Checkout
+          <fa-icon [icon]="faCheckout"></fa-icon>
+        </a>
+      </li>
+    </ul>
+    <div class="form-inline my-2 my-lg-0 ml-5" *ngIf="(books |async)">
+      <input [(ngModel)]="selected" [typeahead]="bookTitles" class="form-control" (typeaheadOnSelect)="getBook()">
+    </div>
+  </div>
+</nav>

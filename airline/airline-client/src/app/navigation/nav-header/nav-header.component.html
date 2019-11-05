@@ -1,0 +1,17 @@
+<!--TODO create app logo and add to header above toolbar-->
+<mat-toolbar class="nav" color="primary">
+  <div>
+    <a mat-button routerLink="flights">Flights</a>
+    <a mat-button [mat-menu-trigger-for]="accountMenu">Account</a>
+    <mat-menu #accountMenu="matMenu">
+      <a mat-menu-item routerLink="account">Account</a>
+      <a mat-menu-item routerLink="account/bookings">Bookings</a>
+    </mat-menu>
+    <a mat-button *ngIf="!isLoggedIn()" [mat-menu-trigger-for]="loginMenu">Login</a>
+    <mat-menu #loginMenu="matMenu">
+      <a mat-menu-item routerLink="login">Login</a>
+      <a mat-menu-item routerLink="account/register">Register</a>
+    </mat-menu>
+    <a mat-button *ngIf="isLoggedIn()" (click)="logout()">Logout</a>
+  </div>
+</mat-toolbar>

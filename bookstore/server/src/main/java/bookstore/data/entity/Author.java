@@ -28,8 +28,6 @@ public class Author {
     private Name name;
     private String penName;
 
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    @JsonManagedReference
     @OneToMany(mappedBy = "author", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Book> books = new HashSet<>();
 

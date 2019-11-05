@@ -1,0 +1,30 @@
+<div class="flight-details-container">
+  <div class="flight-details">
+    <div class="col-4">
+      <h4 class="flight-details-header">Outbound</h4>
+      <div class="flight-details-text-header">{{getDepartureAirport()}}</div>
+      <div>{{getDepartureTime()}}</div>
+    </div>
+    <div class="col-4">
+      <h4 class="flight-details-header">
+        Duration
+      </h4>
+      <div class="flight-details-text-header">
+        {{getDuration()}} hours
+      </div>
+    </div>
+    <div class="col-4">
+      <h4 class="flight-details-header">Inbound</h4>
+      <div class="flight-details-text-header">{{getArrivalAirport()}}</div>
+      <div>{{getArrivalTime()}}</div>
+    </div>
+    <div class="col-4">
+      <h4 class="flight-details-header">
+        Total
+      </h4>
+      <div class="flight-details-text-header">
+        {{getPrice() | currency: '£'}}
+      </div>
+    </div>
+  </div>
+</div>

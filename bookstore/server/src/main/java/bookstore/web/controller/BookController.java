@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
@@ -78,14 +79,20 @@ public class BookController {
         }
     }
 
-    @GetMapping(value = "", params = {"page", "size"})
-    public ResponseEntity<PagedResources<Resource<Book>>> getBooks(@RequestParam int page, @RequestParam int size, PagedResourcesAssembler<Book> pagedResourcesAssembler) {
-        return getPagedResources(page, size, pagedResourcesAssembler);
+    @GetMapping("/recommended")
+    public ResponseEntity<Resources<Resource<Book>>> getRecommendedBooks() {
+        List<Resource<Book>> resourceList = bookService.getRecommendedBooks().stream().map(assembler::toResource).collect(Collectors.toList());
+        Resources<Resource<Book>> resources = new Resources<>(resourceList);
+        resources.add(linkTo(methodOn(BookController.class).getRecommendedBooks()).withSelfRel());
+        return ResponseEntity.ok(resources);
     }
 
-    @GetMapping("")
-    public ResponseEntity<PagedResources<Resource<Book>>> getBooks(PagedResourcesAssembler<Book> pagedResourcesAssembler) {
-        return getPagedResources(0, 10, pagedResourcesAssembler);
+    @GetMapping(value = "")
+    public ResponseEntity<PagedResources<Resource<Book>>> getBooks(
+            @RequestParam(required = false, defaultValue = "0") int page,
+            @RequestParam(required = false, defaultValue = "10") int size,
+            PagedResourcesAssembler<Book> pagedResourcesAssembler) {
+        return getPagedResources(page, size, pagedResourcesAssembler);
     }
 
     public ResponseEntity<PagedResources<Resource<Book>>> getPagedResources(int page, int size, PagedResourcesAssembler<Book> pagedResourcesAssembler) {
@@ -104,5 +111,13 @@ public class BookController {
         } catch (BookNotFoundException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<Resources<Resource<String>>> getBookTitles() {
+        Resources<Resource<String>> bookTitles = new Resources<>(bookService.getBookTitles());
+        bookTitles.add(linkTo(methodOn(BookController.class).getBookTitles()).withSelfRel());
+        bookTitles.add(linkTo(BookController.class).withRel("books"));
+        return ResponseEntity.ok(bookTitles);
     }
 }

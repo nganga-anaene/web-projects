@@ -1,0 +1,68 @@
+<div class="content-container">
+  <mat-card *ngIf="flightsFound()">
+    <div class="flights-container">
+      <div *ngIf="hasChosenForwardFlight()">
+        <mat-toolbar color="accent" class="card-header">
+          <mat-card-title class="card-header">{{selectedFlightsText()}}</mat-card-title>
+        </mat-toolbar>
+        <div>
+          <mat-card class="flight-details-container">
+            <mat-card-content>
+              <app-destination [flightResource]="getForwardFlight()"></app-destination>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div *ngIf="hasChosenReturnFlight()">
+          <mat-card class="flight-details-container">
+            <mat-card-content>
+              <app-destination [flightResource]="getReturnFlight()"></app-destination>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <div *ngIf="!hasChosenForwardFlight()">
+        <mat-toolbar color="accent" class="card-header">
+          <mat-card-title>Forward Flights</mat-card-title>
+        </mat-toolbar>
+        <div>
+          <mat-card *ngFor="let flight of forwardFlights" (click)="chooseForwardFlight(flight)"
+                    class="flight-details-container">
+            <mat-card-content>
+              <app-destination [flightResource]="flight" [matTooltip]="toolTipInfo"></app-destination>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <div *ngIf="hasReturnFlight && !hasChosenReturnFlight()">
+        <mat-toolbar color="accent" class="card-header">
+          <mat-card-title>Return Flights</mat-card-title>
+        </mat-toolbar>
+        <div>
+          <mat-card *ngFor="let returnFlight of returnFlights" (click)="chooseReturnFlight(returnFlight)"
+                    [matTooltip]="toolTipInfo"
+                    class="flight-details-container">
+            <mat-card-content>
+              <app-destination [flightResource]="returnFlight" [matTooltip]="toolTipInfo"></app-destination>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <div *ngIf="hasChosenForwardFlight()" class="flight-details-container">
+        <div class="flight-price">Total: {{getPrice() | currency: '£'}}</div>
+        <div class="flight-price">
+          <button type="submit"
+                  [disabled]="!hasChosenForwardFlight() || (!hasChosenForwardFlight() && !hasChosenReturnFlight())"
+                  (click)="processBooking()" mat-button
+                  class="primary-button">Purchase
+          </button>
+          <div class="divider"></div>
+          <button type="submit"
+                  [disabled]="!hasChosenForwardFlight() || (!hasChosenForwardFlight() && !hasChosenReturnFlight())"
+                  (click)="cancelBooking()" mat-button
+                  class="primary-button">Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

@@ -2,6 +2,7 @@ package bookstore.data.entity;
 
 import bookstore.data.entity.util.Name;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import lombok.Data;
@@ -14,7 +15,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,32 +45,29 @@ public class Book {
     private String title;
 
     @NotNull
-    @Size(max = 300)
+    @Size(max = 700)
     private String synopsis;
 
-    private URL imageUrl;
+    private String imageUrl;
 
     private BigDecimal price;
 
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    @JsonBackReference
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Author author;
 
     @JsonUnwrapped
     private Name authorName;
 
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    @JsonBackReference
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Publisher publisher;
 
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
-    @JsonBackReference
+    @JsonIgnore
     @OneToMany(mappedBy = "book", orphanRemoval = true, cascade = CascadeType.ALL)
     private List<BookItem> bookItems = new ArrayList<>();
 
-    public Book(@NotNull String title, @NotNull @Size(max = 300) String synopsis, BigDecimal price, Author author, Publisher publisher, URL imageUrl) {
+    public Book(@NotNull String title, @NotNull @Size(max = 800) String synopsis, BigDecimal price, Author author, Publisher publisher, String imageUrl) {
         this.title = title;
         this.synopsis = synopsis;
         this.price = price;

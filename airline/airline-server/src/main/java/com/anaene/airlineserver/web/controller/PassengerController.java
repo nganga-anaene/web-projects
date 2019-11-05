@@ -67,6 +67,7 @@ public class PassengerController {
         try {
             return ResponseEntity.ok(passengerService.deleteBooking(passengerId, bookingId));
         } catch (Exception e) {
+            System.out.println(e);
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

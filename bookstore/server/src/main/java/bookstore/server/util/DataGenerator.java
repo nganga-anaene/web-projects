@@ -67,7 +67,7 @@ public class DataGenerator {
 
     @Bean
     public String getSynopsis() {
-        int maxLength = 100 + r.nextInt(199);
+        int maxLength = 400 + r.nextInt(199);
         int end = r.nextInt(lorem.length() - 1);
         int start = (end - maxLength > 0) ? end - maxLength : 0;
         return lorem.substring(start, end);
@@ -117,41 +117,41 @@ public class DataGenerator {
     @Bean
     public Map<String, String> getBookImages() {
         Map<String, String> map = new HashMap<>();
-        map.put("Hamlet", "resources/books/hamlet.jpg");
-        map.put("To Kill a Mockingbird", "resources/books/to_kill_a_mockingbird.jpg");
-        map.put("Invisible Man", "resources/books/invisible_man.jpg");
-        map.put("Jane Eyre", "resources/books/jane_eyre.jpg");
-        map.put("The Color Purple", "resources/books/the_color_purple.jpg");
-        map.put("Madame Bovary", "resources/books/madame_bovary.jpg");
-        map.put("The Odyssey", "resources/books/the_odyssey.jpg");
-        map.put("The Adventures of Huckleberry Finn", "resources/books/huckleberry_finn.jpg");
-        map.put("Pride and Prejudice", "resources/books/pride_and_prejudice.jpg");
-        map.put("Moby-Dick", "resources/books/moby_dick.jpg");
-        map.put("Great Expectations", "resources/books/great_expectations.jpg");
-        map.put("The Autobiography of Benjamin Franklin", "resources/books/autobiography_benjamin_franklin.jpg");
-        map.put("Long Walk to Freedom", "resources/books/long_walk_to_freedom.jpg");
-        map.put("The Diary of a Young Girl", "resources/books/diary_of_a_young_girl.jpg");
-        map.put("Open: An Autobiography by Andre Agassi", "resources/books/open_an_autobiography.jpg");
-        map.put("Magna Carta: The True Story Behind the Charter", "resources/books/magna_carta.jpg");
-        map.put("Napoleon the Great", "resources/books/napoleon_the_great.jpg");
-        map.put("Sapiens: A Brief History of Humankind", "resources/books/sapiens_brief_history_humankind.jpg");
-        map.put("A Brief History of Time", "resources/books/brief_history_of_time.jpg");
-        map.put("Heartstone", "resources/books/heartstone.jpg");
-        map.put("The House at Sea's End", "resources/books/house_at_sea's_end.jpg");
-        map.put("The Eye of the World", "resources/books/eye_of_the_world.jpg");
-        map.put("The Great Hunt", "resources/books/the_great_hunt.jpg");
-        map.put("Dune", "resources/books/dune.jpg");
-        map.put("A Game of Thrones", "resources/books/game_of_thrones.jpg");
-        map.put("The Martian", "resources/books/the_martian.jpg");
-        map.put("7 Habits of Highly Effective People", "resources/books/7_habits.jpg");
-        map.put("The Nightingale: A Novel", "resources/books/nightingale.jpg");
-        map.put("Alexander Hamilton", "resources/books/hamilton.jpg");
-        map.put("A Man Called Ove: A Novel", "resources/books/ove.jpg");
-        map.put("Hillbilly Elegy: A Memoir of a Family and Culture in Crisis", "resources/books/hillbilly_elegy.jpg");
-        map.put("Astrophysics for People in a Hurry", "resources/books/astrophysics.jpg");
-        map.put("Educated: A Memoir", "resources/books/educated.jpg");
-        map.put("How to Win Friends & Influence People", "resources/books/influence_people.jpg");
-        map.put("Becoming", "resources/books/becoming.jpg");
+        map.put("Hamlet", "books/hamlet.jpg");
+        map.put("To Kill a Mockingbird", "books/to_kill_a_mockingbird.jpg");
+        map.put("Invisible Man", "books/invisible_man.jpg");
+        map.put("Jane Eyre", "books/jane_eyre.jpg");
+        map.put("The Color Purple", "books/the_color_purple.jpg");
+        map.put("Madame Bovary", "books/madame_bovary.jpg");
+        map.put("The Odyssey", "books/the_odyssey.jpg");
+        map.put("The Adventures of Huckleberry Finn", "books/huckleberry_finn.jpg");
+        map.put("Pride and Prejudice", "books/pride_and_prejudice.jpg");
+        map.put("Moby-Dick", "books/moby_dick.jpg");
+        map.put("Great Expectations", "books/great_expectations.jpg");
+        map.put("The Autobiography of Benjamin Franklin", "books/autobiography_benjamin_franklin.jpg");
+        map.put("Long Walk to Freedom", "books/long_walk_to_freedom.jpg");
+        map.put("The Diary of a Young Girl", "books/diary_of_a_young_girl.jpg");
+        map.put("Open: An Autobiography by Andre Agassi", "books/open_an_autobiography.jpg");
+        map.put("Magna Carta: The True Story Behind the Charter", "books/magna_carta.jpg");
+        map.put("Napoleon the Great", "books/napoleon_the_great.jpg");
+        map.put("Sapiens: A Brief History of Humankind", "books/sapiens_brief_history_humankind.jpg");
+        map.put("A Brief History of Time", "books/brief_history_of_time.jpg");
+        map.put("Heartstone", "books/heartstone.jpg");
+        map.put("The House at Sea's End", "books/house_at_sea's_end.jpg");
+        map.put("The Eye of the World", "books/eye_of_the_world.jpg");
+        map.put("The Great Hunt", "books/the_great_hunt.jpg");
+        map.put("Dune", "books/dune.jpg");
+        map.put("A Game of Thrones", "books/game_of_thrones.jpg");
+        map.put("The Martian", "books/the_martian.jpg");
+        map.put("7 Habits of Highly Effective People", "books/7_habits.jpg");
+        map.put("The Nightingale: A Novel", "books/nightingale.jpg");
+        map.put("Alexander Hamilton", "books/hamilton.jpg");
+        map.put("A Man Called Ove: A Novel", "books/ove.jpg");
+        map.put("Hillbilly Elegy: A Memoir of a Family and Culture in Crisis", "books/hillbilly_elegy.jpg");
+        map.put("Astrophysics for People in a Hurry", "books/astrophysics.jpg");
+        map.put("Educated: A Memoir", "books/educated.jpg");
+        map.put("How to Win Friends & Influence People", "books/influence_people.jpg");
+        map.put("Becoming", "books/becoming.jpg");
         return map;
     }
 

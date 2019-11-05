@@ -1,0 +1,22 @@
+<div class="login-content bg-light">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header bg-dark text-white">
+        <h5 class="card-title">Sign in</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="loginGroup" (ngSubmit)="processLogin()" class="">
+          <input formControlName="username" type="text" class="form-control" id="username" placeholder="Username">
+          <input type="password" formControlName="password" class="form-control" id="password" placeholder="Password">
+          <button type="submit" class="btn btn-dark">Login</button>
+        </form>
+      </div>
+      <div class="card-footer bg-dark text-white">
+        <div >
+          <label>Don't have an account? </label>
+          <a routerLink="register"> Register</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

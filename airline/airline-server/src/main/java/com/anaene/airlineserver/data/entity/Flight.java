@@ -19,6 +19,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 @ToString(exclude = {"departingAirport", "arrivalAirport"})
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Flight {
 
     @Id
@@ -32,22 +33,23 @@ public class Flight {
     private LocalDateTime departureTime;
     @NotNull
     private LocalDateTime arrivalTime;
-    private BigDecimal initialPrice = BigDecimal.valueOf(400);
+    private BigDecimal price;
     @Transient
     private final int maxBookings = 416;
+    @Transient
+    private int currentBookings;
+
+    private boolean featured;
     @ManyToMany(mappedBy = "flights", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Booking> bookings = new HashSet<>();
 
-    public Flight(Airport departingAirport, Airport arrivalAirport, LocalDateTime departureTime, LocalDateTime arrivalTime) {
+    public Flight(Airport departingAirport, Airport arrivalAirport, LocalDateTime departureTime, LocalDateTime arrivalTime, BigDecimal price, boolean featured) {
         this.departingAirport = departingAirport;
         this.arrivalAirport = arrivalAirport;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
-    }
-
-    @JsonInclude
-    public int currentBookings() {
-        return bookings.size();
+        this.price = price;
+        this.featured = featured;
     }
 }

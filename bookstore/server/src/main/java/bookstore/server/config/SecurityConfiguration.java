@@ -32,6 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/account**").hasRole("USER");
         http.authorizeRequests().antMatchers("sign-up").anonymous();
         http.authorizeRequests().antMatchers("/logout").permitAll().and().logout();
+        http.cors();
         http.csrf().disable();
     }
 

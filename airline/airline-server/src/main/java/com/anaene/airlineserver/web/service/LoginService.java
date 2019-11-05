@@ -42,4 +42,8 @@ public class LoginService {
         resource.add(linkTo(methodOn(LoginController.class).login()).withRel("login"));
         return resource;
     }
+
+    public boolean userExists(String username) {
+        return accountService.findUser(username);
+    }
 }

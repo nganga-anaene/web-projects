@@ -36,7 +36,7 @@ public class LoadPassengers {
     }
 
     public void addPassengers() {
-        for (long i = 0; i < 100; i++) {
+        for (long i = 0; i < 10; i++) {
             Passenger passenger = new Passenger(getPassport());
             passenger = passengerRepository.save(passenger);
             passenger.addPaymentCard(getPaymentCard(passenger.getPassport().getPerson()));

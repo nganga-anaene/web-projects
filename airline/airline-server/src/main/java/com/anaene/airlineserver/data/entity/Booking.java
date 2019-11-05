@@ -1,5 +1,6 @@
 package com.anaene.airlineserver.data.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -22,22 +23,16 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Passenger passenger;
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Flight> flights = new HashSet<>();
+    @JsonFormat(pattern="dd/MM/yyyy hh:mm")
     private LocalDateTime purchaseDate;
     private BigDecimal purchasePrice;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private PaymentCard paymentCard;
-
-    public Booking(Set<Flight> flights, LocalDateTime purchaseDate, BigDecimal purchasePrice, PaymentCard paymentCard) {
-        this.flights = flights;
-        this.purchaseDate = purchaseDate;
-        this.purchasePrice = purchasePrice;
-        this.paymentCard = paymentCard;
-    }
 
     public Booking(Passenger passenger, Set<Flight> flights, LocalDateTime purchaseDate, BigDecimal purchasePrice, PaymentCard paymentCard) {
         this.passenger = passenger;

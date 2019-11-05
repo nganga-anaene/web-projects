@@ -12,8 +12,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityNotFoundException;
+import java.io.File;
 import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URISyntaxException;
 import java.util.*;
 
 @Component
@@ -90,7 +91,7 @@ public class LoadData {
                         Address address = customer.getAddresses().stream().findFirst().orElseThrow(() -> new EntityNotFoundException("NO Address found"));
                         Random r = new Random();
                         List<Book> books = bookRepository.findAll();
-                        for (int i = 0; i < r.nextInt(10) + 1; i++) {
+                        for (int i = 0; i < r.nextInt(10) + 3; i++) {
                             CustomerOrder order = new CustomerOrder(customer, address);
                             order.setBookItems(getBookItems(books));
                             order.setOrderStatus(OrderStatus.COMPLETED);
@@ -128,7 +129,7 @@ public class LoadData {
         generator.getBookAuthors().forEach((title, authorName) -> {
             Author author = new Author(authorName);
             Publisher publisher = getPublisher(generator);
-            URL imageUrl = getBookUrl(bookImages.get(title));
+            String imageUrl = bookImages.get(title);
             books.add(new Book(title, generator.getSynopsis(), generator.setPrice(), author, publisher, imageUrl));
         });
         return books;
@@ -136,13 +137,5 @@ public class LoadData {
 
     private String encodedPassword() {
         return context.getBean(SecurityConfiguration.class).encoder().encode("password1");
-    }
-
-    public URL getBookUrl(String url) {
-        try {
-            return new URL(url);
-        } catch (MalformedURLException e) {
-            return null;
-        }
     }
 }

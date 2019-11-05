@@ -34,13 +34,14 @@ public class LoadBookings {
                 PaymentCard paymentCard = passenger.getPaymentCards().stream().findFirst().get();
                 for (Flight flight : getEmptyFlights()) {
                     Set<Flight> flights = getFlights(flight);
-                    BigDecimal price = markUpDownPrice(flights.stream().map(Flight::getInitialPrice).reduce(BigDecimal.ZERO, BigDecimal::add));
+                    BigDecimal price = markUpDownPrice(flights.stream().map(Flight::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add));
                     LocalDateTime purchaseDate = setPurchaseDate(flight.getDepartureTime());
                     bookings.add(new Booking(passenger, flights, purchaseDate, price, paymentCard));
                 }
                 passenger.addBookings(bookings);
                 passengerRepository.save(passenger);
-            } catch (Exception e){}
+            } catch (Exception e) {
+            }
         });
     }
 
@@ -52,7 +53,7 @@ public class LoadBookings {
         if (r.nextBoolean()) {
             LocalDateTime departureTime = flight.getArrivalTime().plusDays(r.nextInt(20) + 4);
             List<Flight> returnFlights = flightService.getEmptyFlights(flight.getArrivalAirport(), flight.getDepartingAirport(), departureTime);
-            if(!returnFlights.isEmpty()){
+            if (!returnFlights.isEmpty()) {
                 flights.add(returnFlights.get(0));
             }
         }

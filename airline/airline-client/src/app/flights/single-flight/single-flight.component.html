@@ -1,0 +1,7 @@
+<div class="tab-content">
+  <app-airports [flightDetails]="flightDetails"></app-airports>
+  <app-date-selector [dateTitle]="'Departure Date'" (forwardDate)="setDate($event)"></app-date-selector>
+  <div>
+    <button mat-button type="submit" (click)="setFlightDetails()" class="primary-button">Submit</button>
+  </div>
+</div>

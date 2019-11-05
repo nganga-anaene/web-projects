@@ -62,7 +62,6 @@ public class PassengerService {
     @Transactional
     public Resources<Resource<Booking>> getPassengerBookings(long passengerId) {
         Passenger passenger = passengerRepository.findPassengerById(passengerId).orElseThrow();
-        System.out.println(passenger.getBookings());
         Resources<Resource<Booking>> resources = new Resources<>(passenger.getBookings().stream().map(bookingService::getBookingResource).collect(Collectors.toList()));
         resources.add(linkTo(methodOn(PassengerController.class).getPassengerBookings(passengerId)).withSelfRel());
         resources.add(linkTo(methodOn(PassengerController.class).getPassengerDetails(passengerId)).withRel("passenger"));
@@ -91,9 +90,8 @@ public class PassengerService {
     @Transactional
     public String deleteBooking(long passengerId, long bookingId) throws Exception {
         Booking booking = bookingService.getBookingById(bookingId);
-        LocalDateTime now = LocalDateTime.now();
-        if (!now.plusDays(2).isBefore(booking.getPurchaseDate())) throw new Exception("Cancellation period expired");
         if (booking.getPassenger().getId() != passengerId) throw new Exception("Not passenger's booking");
+        //TODO implement booking deletion later
         return "Booking: " + booking.getId() + ", deleted";
     }
 
@@ -145,5 +143,10 @@ public class PassengerService {
         resource.add(linkTo(methodOn(PassengerController.class).getPassengerPassport(passengerId)).withSelfRel());
         resource.add(linkTo(methodOn(PassengerController.class).getPassengerDetails(passengerId)).withRel("passenger-account"));
         return resource;
+    }
+
+    @Transactional
+    public Passenger savePassenger(Passenger passenger) {
+        return passengerRepository.save(passenger);
     }
 }

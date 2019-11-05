@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.container {
+  padding-top: 90px;
+  margin: 0 auto;
+}
+
+body {
+  height: 100%;
+  background-image: url("assets/bg.png");
+  background-repeat: repeat;
+}
+
+.container-fluid {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-height: 680px) and (max-width: 400px) {
+  .container-fluid {
+    height: 110vh;
+  }
+}
