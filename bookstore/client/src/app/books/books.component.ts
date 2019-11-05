@@ -19,11 +19,12 @@ export class BooksComponent implements OnInit {
   private resource: BooksResource;
   private currentPage: string;
 
-  constructor(private appService: AppService, private route: Router) {
+  constructor(private appService: AppService, private router: Router) {
   }
 
   ngOnInit() {
-    this.route.events.subscribe(events => this.appService.getBookResources());
+    this.appService.getBookResources();
+    this.router.events.subscribe(events => this.appService.getBookResources());
     this.requestBookResources();
   }
 

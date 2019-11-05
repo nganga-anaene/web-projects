@@ -1,6 +1,6 @@
-<div class="card-content">
+<div class="tab-content">
   <app-airports [flightDetails]="flightDetails"></app-airports>
   <app-date-selector [dateTitle]="'Departure Date'" (forwardDate)="addForwardDate($event)"></app-date-selector>
   <app-date-selector [dateTitle]="'Return Date'" (returnDate)="addReturnDate($event)" #returnDate></app-date-selector>
-  <button mat-button type="submit" (click)="setReturnFlightDetails()" class="card-button">Submit</button>
+  <button mat-button type="submit" (click)="setReturnFlightDetails()" class="primary-button">Submit</button>
 </div>

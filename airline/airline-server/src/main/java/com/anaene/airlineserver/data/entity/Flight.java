@@ -1,6 +1,5 @@
 package com.anaene.airlineserver.data.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
@@ -39,15 +38,18 @@ public class Flight {
     private final int maxBookings = 416;
     @Transient
     private int currentBookings;
+
+    private boolean featured;
     @ManyToMany(mappedBy = "flights", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Booking> bookings = new HashSet<>();
 
-    public Flight(Airport departingAirport, Airport arrivalAirport, LocalDateTime departureTime, LocalDateTime arrivalTime, BigDecimal price) {
+    public Flight(Airport departingAirport, Airport arrivalAirport, LocalDateTime departureTime, LocalDateTime arrivalTime, BigDecimal price, boolean featured) {
         this.departingAirport = departingAirport;
         this.arrivalAirport = arrivalAirport;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.price = price;
+        this.featured = featured;
     }
 }

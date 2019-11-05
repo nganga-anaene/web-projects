@@ -18,7 +18,7 @@ export class BookingsComponent implements OnInit {
   ngOnInit() {
     this.bookings = new Observable();
     if (this.accountService.isLoggedIn()) {
-      this.accountService.getBookingDetails().subscribe(value => {
+      this.accountService.getBookings().subscribe(value => {
         this.bookings = of(value._embedded.bookingList);
       });
     } else {

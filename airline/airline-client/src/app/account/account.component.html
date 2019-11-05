@@ -1,6 +1,12 @@
-<div *ngIf="user != null">
-  <h2>Welcome {{user}}</h2>
+<div *ngIf="user != null" class="content-container">
+  <mat-toolbar color="accent">Welcome {{user}}</mat-toolbar>
   <mat-card>
-    <mat-card><a routerLink="bookings" mat-card-title>Bookings</a></mat-card>
+    <mat-tab-group color="primary" mat-align-tabs="center">
+      <mat-tab label="Bookings">
+        <app-bookings></app-bookings>
+      </mat-tab>
+      <mat-tab label="Payment Cards"></mat-tab>
+      <mat-tab label="Passport"></mat-tab>
+    </mat-tab-group>
   </mat-card>
 </div>

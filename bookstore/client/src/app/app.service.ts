@@ -48,4 +48,8 @@ export class AppService {
   getNextPage(href: string) {
     return this.httpClient.get<BooksResource>(href);
   }
+
+  getRecommendedBooks() {
+    return this.httpClient.get<BooksResource>(this.booksUrl + '/recommended');
+  }
 }

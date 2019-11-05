@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
@@ -76,6 +77,14 @@ public class BookController {
         } catch (BookItemNotFoundException | BookNotFoundException E) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/recommended")
+    public ResponseEntity<Resources<Resource<Book>>> getRecommendedBooks() {
+        List<Resource<Book>> resourceList = bookService.getRecommendedBooks().stream().map(assembler::toResource).collect(Collectors.toList());
+        Resources<Resource<Book>> resources = new Resources<>(resourceList);
+        resources.add(linkTo(methodOn(BookController.class).getRecommendedBooks()).withSelfRel());
+        return ResponseEntity.ok(resources);
     }
 
     @GetMapping(value = "")

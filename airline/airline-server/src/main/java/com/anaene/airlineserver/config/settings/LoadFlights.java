@@ -51,10 +51,16 @@ public class LoadFlights {
                 if (arrivalTime.isBefore(departingTime) || arrivalTime.equals(departingTime)) {
                     arrivalTime = arrivalTime.plusDays(1);
                 }
-                flightRepository.save(new Flight(departureAirport, arrivalAirport, departingTime, arrivalTime, price));
+                flightRepository.save(new Flight(departureAirport, arrivalAirport, departingTime, arrivalTime, price, setFeatured()));
             }
             time = time.plusDays(1);
         }
+    }
+
+    private boolean setFeatured() {
+        Random r = new Random();
+        int next = r.nextInt(5);
+        return next % 3 == 0;
     }
 
     private LocalDateTime setTime(LocalDateTime time) {

@@ -18,4 +18,6 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
     Page<Flight> findByDepartingAirport(Airport departingAirport, Pageable pageable);
 
     Page<Flight> findByArrivalAirport(Airport arrivalAirport, Pageable pageable);
+
+    List<Flight> findByDepartureTimeAfterAndFeatured(LocalDateTime departureTime, boolean featured);
 }

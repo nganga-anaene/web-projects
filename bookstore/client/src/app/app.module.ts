@@ -16,8 +16,16 @@ import { AccountComponent } from './account/account.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AboutComponent } from './about/about.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {TypeaheadModule} from 'ngx-bootstrap';
+import {BsDropdownModule, CarouselModule, TypeaheadModule} from 'ngx-bootstrap';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { BannerComponent } from './banner/banner.component';
+import { RecommendedBooksComponent } from './recommended-books/recommended-books.component';
+import { BookDetailsComponent } from './books/book-details/book-details.component';
+import { FooterComponent } from './navigation/footer/footer.component';
+import { OrdersComponent } from './account/orders/orders.component';
+import { AddressesComponent } from './account/addresses/addresses.component';
+import { UserComponent } from './account/user/user.component';
+import { OrderComponent } from './account/orders/order/order.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +38,14 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     LoginComponent,
     AccountComponent,
     AboutComponent,
+    BannerComponent,
+    RecommendedBooksComponent,
+    BookDetailsComponent,
+    FooterComponent,
+    OrdersComponent,
+    AddressesComponent,
+    UserComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +56,9 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     BrowserAnimationsModule,
     TypeaheadModule.forRoot(),
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CarouselModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

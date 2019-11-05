@@ -1,22 +1,22 @@
-<div class="app-content container">
-  <div class="login-group">
-    <form [formGroup]="loginGroup" (ngSubmit)="processLogin()">
-      <div class="form-group row">
-        <div *ngIf="!isValid" class="alert">Invalid Username or Password</div>
-        <label for="username" class="col-sm-2 col-form-label">Username</label>
-        <div class="col-sm-4">
+<div class="login-content bg-light">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header bg-dark text-white">
+        <h5 class="card-title">Sign in</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="loginGroup" (ngSubmit)="processLogin()" class="">
           <input formControlName="username" type="text" class="form-control" id="username" placeholder="Username">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="password" class="col-sm-2 col-form-label">Password</label>
-        <div class="col-sm-4">
           <input type="password" formControlName="password" class="form-control" id="password" placeholder="Password">
+          <button type="submit" class="btn btn-dark">Login</button>
+        </form>
+      </div>
+      <div class="card-footer bg-dark text-white">
+        <div >
+          <label>Don't have an account? </label>
+          <a routerLink="register"> Register</a>
         </div>
       </div>
-      <div class="form-group row">
-        <button type="submit" class="btn btn-primary ">Login</button>
-      </div>
-    </form>
+    </div>
   </div>
 </div>

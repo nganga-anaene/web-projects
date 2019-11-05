@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-nav-footer',
@@ -12,4 +13,7 @@ export class NavFooterComponent implements OnInit {
   ngOnInit() {
   }
 
+  currentDate() {
+    return moment(moment.now()).format('YYYY');
+  }
 }

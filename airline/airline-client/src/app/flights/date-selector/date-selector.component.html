@@ -1,9 +1,7 @@
-<div>
-  <mat-form-field class="card-field">
-    <mat-label>{{dateTitle}}</mat-label>
-    <input matInput [matDatepicker]="flightDate" [min]="dateToday()"
-           [formControl]="dateControl" (dateChange)="setDate($event)" (click)="flightDate.open()">
-    <mat-datepicker-toggle matSuffix [for]="flightDate"></mat-datepicker-toggle>
-    <mat-datepicker #flightDate></mat-datepicker>
-  </mat-form-field>
-</div>
+<mat-form-field class="form-field" appearance="outline">
+  <mat-label>{{dateTitle}}</mat-label>
+  <input matInput [matDatepicker]="flightDate" [min]="dateToday()"
+         [formControl]="dateControl" (dateChange)="setDate($event)" (click)="flightDate.open()">
+  <mat-datepicker-toggle matSuffix [for]="flightDate"></mat-datepicker-toggle>
+  <mat-datepicker #flightDate></mat-datepicker>
+</mat-form-field>

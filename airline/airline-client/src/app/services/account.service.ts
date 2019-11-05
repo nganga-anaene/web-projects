@@ -26,14 +26,15 @@ export class AccountService {
       const accountUrl = value._links['account-details'].href;
       this.http.get<AccountResource>(accountUrl, {headers: this.loginService.setHttpHeaders()}).subscribe(account => {
         this.accountIdSubject.next(account.id);
-        this.http.get<BookingsResource>(account._links.bookings.href, {headers: this.loginService.setHttpHeaders()})
-          .subscribe(bookings => this.bookingsSubject.next(bookings));
+        this.http.get<BookingsResource>(account._links.bookings.href, {headers: this.loginService.setHttpHeaders()}).subscribe(bookings => {
+          this.bookingsSubject.next(bookings);
+        });
         this.accountSubject.next(account.passport.firstName);
       });
     });
   }
 
-  getBookingDetails() {
+  getBookings() {
     this.sendAccountDetails();
     return this.bookingsSubject.asObservable();
   }

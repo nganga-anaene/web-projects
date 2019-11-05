@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from '../services/login.service';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
+import {BookingOrderService} from '../booking-order/booking-order.service';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +17,8 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(50)])
   });
   private registerLabel = 'Don\'t have an account?';
-  private loginLabel = 'Login';
 
-  constructor(private loginService: LoginService, private router: Router, private cookieService: CookieService) {
+  constructor(private loginService: LoginService, private router: Router, private cookieService: CookieService, private bookingService: BookingOrderService) {
   }
 
   ngOnInit() {
@@ -44,7 +44,11 @@ export class LoginComponent implements OnInit {
     this.loginService.getLoginResource().subscribe(value => {
       this.cookieService.set('logged-in', 'true');
       this.loginService.sendSubjects(value);
-      this.router.navigateByUrl('account');
+      if (this.bookingService.getForwardFlight != null) {
+        this.router.navigateByUrl('flights/booking');
+      } else {
+        this.router.navigateByUrl('account');
+      }
     }, error1 => {
     });
   }

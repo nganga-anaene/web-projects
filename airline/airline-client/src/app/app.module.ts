@@ -16,11 +16,14 @@ import {
   MatDatepickerModule,
   MatDividerModule,
   MatFormFieldModule,
-  MatInputModule, MatMenuModule,
+  MatInputModule,
+  MatMenuModule,
   MatSelectModule,
   MatStepperModule,
   MatTableModule,
-  MatTabsModule, MatToolbarModule
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule
 } from '@angular/material';
 import {LoginComponent} from './login/login.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -39,8 +42,9 @@ import {RegisterComponent} from './register/register.component';
 import {CookieService} from 'ngx-cookie-service';
 import {BookingsComponent} from './account/bookings/bookings.component';
 import {BookingDetailComponent} from './account/bookings/booking-detail/booking-detail.component';
-import { NavHeaderComponent } from './navigation/nav-header/nav-header.component';
-import { NavFooterComponent } from './navigation/nav-footer/nav-footer.component';
+import {NavHeaderComponent} from './navigation/nav-header/nav-header.component';
+import {NavFooterComponent} from './navigation/nav-footer/nav-footer.component';
+import {FeaturedComponent} from './flights/featured/featured.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -73,6 +77,7 @@ export const MY_FORMATS = {
     BookingDetailComponent,
     NavHeaderComponent,
     NavFooterComponent,
+    FeaturedComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +101,7 @@ export const MY_FORMATS = {
     MatTableModule,
     MatMenuModule,
     MatToolbarModule,
+    MatTooltipModule,
   ],
   providers: [
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},

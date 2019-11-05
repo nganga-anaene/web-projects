@@ -1,22 +1,52 @@
-<div>
-  <h4>Orders</h4>
-  <div *ngIf="(orders|async); let orderList">
-    <div *ngIf="checkItems(orderList)">
-      <div *ngFor="let order of orderList">
-        <div *ngIf="checkItems(order.bookItems)">
-          <div *ngFor="let bookItem of order.bookItems">
-            <img [src]="'assets/' + bookItem.book.imageUrl" alt="">
-            <div>{{bookItem.book.title}}</div>
-          </div>
-          <div>
-            <div>{{getTotal(order.bookItems)}}</div>
-            <button *ngIf="!checkOrderStatus(order.orderStatus)" (click)="cancelOrder(order.id)">Cancel Order</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card" routerLink="/account/orders">
+        <div class="card-header card-title text-white bg-dark">My Orders</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-auto">
+              <fa-icon [icon]="orderIcon" size="2x"></fa-icon>
+            </div>
+            <div class="col-md-8">
+              <p>View, track, edit or cancel orders</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div *ngIf="!checkItems(orderList)">
-      No Orders
+    <div class="col-md-4">
+      <div class="card" routerLink="/account/addresses">
+        <div class="card-header card-title text-white bg-dark">My Addresses</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-auto">
+              <fa-icon [icon]="addressIcon" size="2x"></fa-icon>
+            </div>
+            <div class="col-md-8">
+              <p>View, edit addresses and delivery preferences</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" routerLink="/account/details">
+        <div class="card-header card-title text-white bg-dark">My Details</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-auto">
+              <fa-icon [icon]="userIcon" size="2x"></fa-icon>
+            </div>
+            <div class="col-md-8 card-text">
+              <p>View, edit name and payment details</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+<div class="fixed-bottom">
+  <app-footer></app-footer>
 </div>

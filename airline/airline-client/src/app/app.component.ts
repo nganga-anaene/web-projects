@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CookieService} from 'ngx-cookie-service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +9,10 @@ import {CookieService} from 'ngx-cookie-service';
 export class AppComponent implements OnInit {
   title = 'airline-client';
 
-  constructor(private cookieService: CookieService) {
+  constructor(private router: Router) {
   }
 
   ngOnInit() {
+    // this.router.navigateByUrl('flights');
   }
 }

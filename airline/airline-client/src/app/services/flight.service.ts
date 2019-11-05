@@ -82,4 +82,7 @@ export class FlightService {
     return this.returnFlights.asObservable();
   }
 
+  getFeaturedFlights() {
+    return this.http.get<FlightsResource>('http://localhost:8080/flights/featured/');
+  }
 }

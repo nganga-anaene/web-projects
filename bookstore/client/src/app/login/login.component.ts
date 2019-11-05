@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
         this.cookieService.set('username', this.usernameControl.value);
         this.cookieService.set('password', this.passwordControl.value);
         this.cookieService.set('logged-in', 'true');
+        this.router.navigateByUrl('account');
       }, error1 => console.log(error1));
     } else {
       this.isValid = false;

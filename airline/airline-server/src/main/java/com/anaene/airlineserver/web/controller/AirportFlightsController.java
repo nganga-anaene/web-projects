@@ -4,6 +4,7 @@ import com.anaene.airlineserver.data.entity.Flight;
 import com.anaene.airlineserver.web.service.FlightService;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -64,5 +65,10 @@ public class AirportFlightsController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping("/featured")
+    public ResponseEntity<Resources<Resource<Flight>>> getFeaturedFlights() {
+        return ResponseEntity.ok(flightService.getFeaturedFlights());
     }
 }

@@ -14,6 +14,7 @@ export class FlightSelectorComponent implements OnInit {
   private forwardFlights: FlightResource[] = [];
   private returnFlights: FlightResource[] = [];
   private hasReturnFlight: boolean;
+  private toolTipInfo = 'select to purchase';
 
   constructor(private flightService: FlightService, private bookingService: BookingOrderService, private router: Router) {
   }
@@ -92,16 +93,14 @@ export class FlightSelectorComponent implements OnInit {
     }
   }
 
-
-  hasSelectedFlights() {
-    if (this.hasReturnFlight) {
-      return this.hasChosenReturnFlight() && this.hasChosenForwardFlight();
-    } else {
-      return this.hasChosenForwardFlight;
-    }
-  }
-
   processBooking() {
     this.router.navigateByUrl('flights/booking');
+  }
+
+  cancelBooking() {
+    this.bookingService.resetForwardFlight();
+    if (this.bookingService.isReturnFlightSelected()) {
+      this.bookingService.resetReturnFlight();
+    }
   }
 }

@@ -11,11 +11,13 @@ import {AirportResource} from '../resource-interfaces/airport-resource';
 export class FlightsComponent implements OnInit {
 
   private airports: AirportResource[];
+  private hasSelectedFlightDetails: boolean;
 
   constructor(private flightService: FlightService) {
   }
 
   ngOnInit() {
+    this.hasSelectedFlightDetails = false;
     this.flightService.getAirportResources().subscribe(value => {
       this.airports = value;
     });
@@ -50,5 +52,10 @@ export class FlightsComponent implements OnInit {
     const departureAirportId = this.getAirportId(departureAirportName);
     const arrivalAirportId = this.getAirportId(arrivalAirportName);
     return this.flightService.getFlights(departureAirportId, arrivalAirportId, departureDate);
+  }
+
+  setContent($event: boolean) {
+    console.log($event)
+    this.hasSelectedFlightDetails = $event;
   }
 }

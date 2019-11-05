@@ -8,6 +8,9 @@ import {CookieService} from 'ngx-cookie-service';
 })
 export class AccountService {
 
+  private ordersUrl = 'http://localhost:8080/account/orders/';
+  private addressUrl = 'http://localhost:8080/account/addresses/';
+
   constructor(private http: HttpClient, private cookieService: CookieService) {
   }
 
@@ -18,15 +21,20 @@ export class AccountService {
     });
   }
 
-  getOrders(ordersUrl: string) {
-    return this.http.get(ordersUrl, {
+  getOrders() {
+    return this.http.get(this.ordersUrl, {
       headers: LoginService.setHttpHeaders(this.cookieService.get('username'), this.cookieService.get('password'))
     });
   }
 
-  getAddresses(addressUrl: string) {
-    return this.http.get(addressUrl, {
+  getAddresses() {
+    return this.http.get(this.addressUrl, {
       headers: LoginService.setHttpHeaders(this.cookieService.get('username'), this.cookieService.get('password'))
     });
+  }
+
+  getOrder(id: string) {
+    return this.http.get(this.ordersUrl + id,
+      {headers: LoginService.setHttpHeaders(this.cookieService.get('username'), this.cookieService.get('password'))});
   }
 }

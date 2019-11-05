@@ -18,7 +18,9 @@ export class DestinationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.setTime();
+    if (this.flightResource != null) {
+      this.setTime();
+    }
   }
 
   private setTime() {

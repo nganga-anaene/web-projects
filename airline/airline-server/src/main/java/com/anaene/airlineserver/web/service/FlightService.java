@@ -5,17 +5,20 @@ import com.anaene.airlineserver.data.entity.Flight;
 import com.anaene.airlineserver.data.repository.AirportRepository;
 import com.anaene.airlineserver.data.repository.FlightRepository;
 import com.anaene.airlineserver.web.controller.AirportController;
+import com.anaene.airlineserver.web.controller.AirportFlightsController;
 import com.anaene.airlineserver.web.resource.FlightResourceAssembler;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
+import org.springframework.hateoas.Resources;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -90,5 +93,18 @@ public class FlightService {
         Page<Flight> flightPage = flightRepository.findByArrivalAirport(departingAirport, PageRequest.of(page, size));
         PagedResourcesAssembler<Flight> pagedResourcesAssembler = new PagedResourcesAssembler<>(null, null);
         return pagedResourcesAssembler.toResource(flightPage, flightResourceAssembler);
+    }
+
+    public Resources<Resource<Flight>> getFeaturedFlights() {
+        List<Flight> flights = flightRepository
+                .findByDepartureTimeAfterAndFeatured(LocalDateTime.now(), true);
+        List<Airport> airports = flights.stream().map(Flight::getDepartingAirport).distinct().collect(Collectors.toList());
+        List<Resource<Flight>> resourceList = new ArrayList<>();
+        airports.stream().limit(4).forEach(airport -> {
+            resourceList.add(flights.stream().filter(f -> f.getArrivalAirport().equals(airport)).findFirst().map(flightResourceAssembler::toResource).get());
+        });
+        Resources<Resource<Flight>> resources = new Resources<>(resourceList);
+        resources.add(linkTo(methodOn(AirportFlightsController.class).getFeaturedFlights()).withSelfRel());
+        return resources;
     }
 }

@@ -1,1 +1,24 @@
+.flight-search {
+  padding: 1.6%;
+  background-image: url("../../assets/skyline-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+.separator {
+  margin-bottom: 1.6%;
+}
+
+.flight-search-card {
+  min-height: 470px;
+}
+
+.content-container {
+
+}
+
+@media screen and (max-width: 800px) {
+  .flight-search {
+    padding: 4%;
+  }
+}

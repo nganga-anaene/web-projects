@@ -10,14 +10,11 @@ import bookstore.web.exception.BookItemNotFoundException;
 import bookstore.web.exception.BookNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.hateoas.Resource;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
@@ -38,8 +35,10 @@ public class BookService {
         return bookRepository.findAll(PageRequest.of(page, size));
     }
 
-    public Page<Book> getBookPageSorted(int page, int size, Sort sort) {
-        return bookRepository.findAll(PageRequest.of(page, size, sort));
+    public List<Book> getRecommendedBooks() {
+        List<Book> books = bookRepository.findAll();
+        Collections.shuffle(books);
+        return books.stream().limit(5).collect(Collectors.toList());
     }
 
     @Transactional

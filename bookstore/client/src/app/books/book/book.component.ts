@@ -18,6 +18,7 @@ export class BookComponent implements OnInit {
   private bookItemsResource = new Subject<BookItemResource[]>();
   private authorResource = new Subject<AuthorResource>();
   private hasSelectedBookItem = new Subject<boolean>();
+  private price: number;
 
   constructor(private appService: AppService, private route: ActivatedRoute, private cartService: CartService, private router: Router) {
   }
@@ -33,6 +34,7 @@ export class BookComponent implements OnInit {
   private setBookDetails() {
     const bookId = this.route.snapshot.paramMap.get('id');
     this.appService.getBookResource(bookId).subscribe((value: BookResource) => {
+      this.price = value.price;
       this.appService.getBookItemsResource(value._links.bookItems.href)
         .subscribe(bookItems => {
           this.bookItemsResource.next(bookItems._embedded.bookItemList);
@@ -41,10 +43,6 @@ export class BookComponent implements OnInit {
       this.appService.getAuthorResource(value._links.author.href).subscribe(author => this.authorResource.next(author));
       this.bookResource.next(value);
     });
-  }
-
-  getPrice(bookItems: BookItemResource[], selectedIndex: number) {
-    return bookItems[selectedIndex].total;
   }
 
   addToBasket(selectedIndex: number, bookItems: BookItemResource[]) {
@@ -69,5 +67,9 @@ export class BookComponent implements OnInit {
         }
       }
     });
+  }
+
+  setPrice(bookItems: BookItemResource[], selectedIndex: number) {
+    this.price = bookItems[selectedIndex].total;
   }
 }

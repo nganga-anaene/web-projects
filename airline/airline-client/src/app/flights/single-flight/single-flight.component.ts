@@ -31,12 +31,4 @@ export class SingleFlightComponent implements OnInit {
   setDate($event: string) {
     this.flightDetails.setDepartureDate($event);
   }
-
-  setDepartureAirportName($event: string) {
-    this.flightDetails.setDepartureAirportName($event);
-  }
-
-  setArrivalAirportName($event: string) {
-    this.flightDetails.setArrivalAirportName($event);
-  }
 }
