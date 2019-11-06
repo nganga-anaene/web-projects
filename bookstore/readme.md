@@ -8,11 +8,15 @@
 
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/screencapture-localhost-4200-books-2019-11-05-22_13_37.png"></a>
 
+<h5>Typeahed Book Search</h5>
+
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/screencapture-localhost-4200-books-2019-11-05-22_16_06.png"></a>
 
-<h5>Account Detail Pages</h5>
+<h5>Account Page</h5>
 
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/screencapture-localhost-4200-account-2019-11-05-22_14_10.png"></a>
+
+<h5>Completed User Order Page</h5>
 
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/screencapture-localhost-4200-account-orders-322-2019-11-05-22_14_41.png"></a>
 
