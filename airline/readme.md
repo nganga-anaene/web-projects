@@ -14,6 +14,10 @@ Mock project about a new airline. The airline will provide flights to a few majo
 
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/airline/screencapture-localhost-4200-flights-2019-10-23-21_46_13.png"></a>
 
+<h5>Login Page</h5>
+
+<a><img src="https://github.com/nganga-anaene/web-projects/blob/master/airline/screencapture-localhost-4200-flights-2019-10-23-21_46_13.png"></a>
+
 <h2>How it works</h2>
 
 <b>The system will provide the following features for clients:</b>
