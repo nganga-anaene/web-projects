@@ -12,6 +12,10 @@
 
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/screencapture-localhost-4200-books-2019-11-05-22_16_06.png"></a>
 
+<h5>Login Pages</h5>
+
+<a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/screencapture-localhost-4200-login-2019-11-05-22_16_27.png"></a>
+
 <h5>Account Page</h5>
 
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/screencapture-localhost-4200-account-2019-11-05-22_14_10.png"></a>
