@@ -2,6 +2,11 @@
 
 Mock project about a new airline. The airline will provide flights to a few major cities.
 
+<h2> How it looks.</h2>
+
+<a><img src="https://github.com/nganga-anaene/web-projects/blob/master/airline/screencapture-localhost-4200-flights-2019-10-23-21_36_13.png"></a>
+
+
 <h2>How it works</h2>
 
 <b>The system will provide the following features for clients:</b>
