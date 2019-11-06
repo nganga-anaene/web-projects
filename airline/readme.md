@@ -4,8 +4,15 @@ Mock project about a new airline. The airline will provide flights to a few majo
 
 <h2> How it looks.</h2>
 
+<h5>Landing Page</h5>
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/airline/screencapture-localhost-4200-flights-2019-10-23-21_36_13.png"></a>
 
+<h5>Landing page renders after flight details selected</h5>
+<a><img src="https://github.com/nganga-anaene/web-projects/blob/master/airline/screencapture-localhost-4200-flights-2019-10-23-21_46_44.png"></a>
+
+<h5>Landing page on mobile and some medium devices</h5>
+
+<a><img src="https://github.com/nganga-anaene/web-projects/blob/master/airline/screencapture-localhost-4200-flights-2019-10-23-21_46_13.png"></a>
 
 <h2>How it works</h2>
 
