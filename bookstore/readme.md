@@ -1,8 +1,8 @@
 # Bookstore Project
 
 <ul>
-  <li><a href="#webpages">How it looks</li>
-  <li><a href="#details">How it works</li>
+  <li><a href="#webpages">How it looks</a></li>
+  <li><a href="#details">How it works</a></li>
 </ul>
 
 <p>This is a mock project which provides a rest service to a client of an online bookstore.</p>
