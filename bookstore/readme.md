@@ -33,9 +33,9 @@
 
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/screencapture-localhost-4200-account-orders-322-2019-11-05-22_14_41.png"></a>
 
-<h3 id="details">How it Works</h3>
+<h3 id="details">Backend</h3>
 
-<p>The project will follow the diagram below</p>
+<p>The project is based on the diagram below</p>
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/model.png"></a>
 
 
