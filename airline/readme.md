@@ -1,8 +1,13 @@
 # Airline project #
 
+<ul>
+  <li><a href="#webpages">How it Looks</a></li>
+  <li><a href="#details">How it Works</a></li>
+</ul>
+
 Mock project about a new airline. The airline will provide flights to a few major cities.
 
-<h2> How it looks.</h2>
+<h2 id="webpages"> How it looks.</h2>
 
 <h5>Landing Page</h5>
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/airline/screencapture-localhost-4200-flights-2019-10-23-21_36_13.png"></a>
@@ -54,6 +59,6 @@ Mock project about a new airline. The airline will provide flights to a few majo
 </ol>
 
 
-<h2>Model</h2>
+<h2 id="details">Model</h2>
 
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/airline/airline.png"></a>
