@@ -1,8 +1,13 @@
 # Bookstore Project
 
+<ul>
+  <li><a href="#webpages">How it looks</li>
+  <li><a href="#works">How it works</li>
+</ul>
+
 <p>This is a mock project which provides a rest service to a client of an online bookstore.</p>
 
-<h3>Webpages</h3>
+<h3 id="webpages">Webpages</h3>
 
 <h5>Landing Page</h5>
 
@@ -28,7 +33,7 @@
 
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/screencapture-localhost-4200-account-orders-322-2019-11-05-22_14_41.png"></a>
 
-<h3>Model</h3>
+<h3 id="details">How it Works</h3>
 
 <p>The project will follow the diagram below</p>
 <a><img src="https://github.com/nganga-anaene/web-projects/blob/master/bookstore/model.png"></a>
