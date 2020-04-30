@@ -25,7 +25,7 @@
     "@nguniversal/express-engine": "^8.1.1",
     "angular4-hal": "^7.9.1",
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-bootstrap": "^5.1.2",
     "ngx-cookie-service": "^2.2.0",
     "popper.js": "^1.15.0",
